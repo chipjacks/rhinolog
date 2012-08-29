@@ -7,9 +7,14 @@ gem 'rails', '3.2.7'
 
 gem 'pg'
 
-group :test do 
+group :development, :test do 
 	gem 'rspec-rails'
+end
+
+group :test do
 	gem 'capybara'
+	gem 'spork'
+	gem 'factory_girl_rails'
 end
 
 
@@ -23,9 +28,15 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+
+  gem "twitter-bootstrap-rails"
 end
 
 gem 'jquery-rails'
+
+gem 'devise'
+
+gem 'simple_form'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -1,0 +1,19 @@
+<div class="container">
+	<% if user_signed_in? %>
+    	Signed in as <strong><%= current_user.email %></strong>.
+    	<%= link_to 'Edit profile', edit_user_registration_path %> |
+    	<%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+    	<h1><%= base_title %></h1>
+    <% else %>
+	    <div class="hero-unit">
+	    	<h1><%= base_title %></h1>
+	    	<p>
+	    		Welcome to <%= base_title %>. Open an account to get started.
+	    	</p>
+	    	<div class="btn-group">
+	    		<%= link_to "Sign up", new_user_registration_path, class: "btn btn-large btn-primary" %>
+	    		<%= link_to "Sign in", new_user_session_path, class: "btn btn-large" %>
+	    	</div>
+	    </div>
+    <% end %>
+</div>
