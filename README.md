@@ -1,4 +1,4 @@
-Runodo
-======
+Mileage Bank
+============
 
-A webapp designed to make logging running mileage as quick and simple.
+A webapp designed to make logging running mileage quick and simple.
