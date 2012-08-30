@@ -3,12 +3,12 @@
     <%= run_feed.date %>
   </td>
   <td>
-    <%= best_in_place run_feed, :distance, :inner_class => 'test' %>
+    <%= best_in_place run_feed, :distance, :inner_class => 'rundata' %>
   </td>
   <td>
-    <%= best_in_place run_feed, :mins %>
+    <%= best_in_place run_feed, :time, :inner_class => 'rundata' %>
   </td>
   <td>
-    <%= best_in_place run_feed, :pace %>
+    <%= best_in_place run_feed, :pace, :inner_class => 'rundata' %>
   </td>
 </tr>

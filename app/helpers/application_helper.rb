@@ -1,7 +1,7 @@
 module ApplicationHelper
 
 	def base_title
-		"Mileage Bank"
+		"Milefile"
 	end
 
 	#Returns the full title ona per-page basis.

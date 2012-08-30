@@ -1,8 +1,12 @@
 <% if user_signed_in? %>
-  	Signed in as <strong><%= current_user.email %></strong>.
-  	<%= link_to 'Edit profile', edit_user_registration_path %> |
-  	<%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-  	<h1><%= base_title %></h1>
+    <div class="pull-right">
+    	Signed in as <strong><%= current_user.email %></strong>.
+    	<%= link_to 'Edit profile', edit_user_registration_path %> |
+    	<%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+    </div>
+    <div class="row">
+  	 <h1><%= base_title %></h1>
+    </div>
   	<table class="table">
   		<thead>
   			<tr>
@@ -13,16 +17,18 @@
   		</thead>
   		<%= render partial: 'shared/run_feed', collection: @runs %>
   	</table>
-  	<%= simple_form_for Run.new do |f| %>
+    <div class="row">
+    <legend>Deposit a new run</legend>
+    </div>
+  	<%= simple_form_for Run.new, :html => { :class => 'form-horizontal' } do |f| %>
   	  <%= f.error_notification %>
 
-  	  <div class="form-inputs">
-  	    <%= f.input :date, :required => true, :autofocus => true %>
-  	    <%= f.input :mins, :required => true %>
-  	    <%= f.input :distance, :required => true %>
-  	    <%= f.input :pace, :required => true %>
+  	  <div class="form-inputs row">
+  	    <%= f.input :date, :required => true, :autofocus => true, :input_html => { :class => 'span2' } %>
+  	    <%= f.input :time, :required => true, :input_html => { :class => 'span2 newrun' } %>
+  	    <%= f.input :distance, :required => true, :input_html => { :class => 'span2 newrun' } %>
+  	    <%= f.input :pace, :required => true, :input_html => { :class => 'span2 newrun' } %>
   	  </div>
-
   	  <div class="form-actions">
   	    <%= f.button :submit, "Deposit" %>
   	  </div>

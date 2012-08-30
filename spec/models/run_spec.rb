@@ -2,15 +2,15 @@
 #
 # Table name: runs
 #
-#  id         :integer          not null, primary key
-#  user_id    :integer
-#  date       :date
-#  mins       :integer
-#  distance   :decimal(5, 2)
-#  pace       :integer
-#  feel       :integer          default(2)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id           :integer          not null, primary key
+#  user_id      :integer
+#  date         :date
+#  time_in_mins :integer
+#  distance     :decimal(5, 2)
+#  pace_in_secs :integer
+#  feel         :integer          default(2)
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
 #
 
 require 'spec_helper'

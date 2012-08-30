@@ -6,7 +6,7 @@
   </div>
   <div class="span2">
     <b>Time:</b>
-    <%= best_in_place @run, :mins, inner_class: 'rundata' %>
+    <%= best_in_place @run, :time, inner_class: 'rundata' %>
   </div>
   <div class="span2">
     <b>Distance:</b>
@@ -14,5 +14,5 @@
   </div>
   <div class="span2">
     <b>Pace:</b>
-    <%= best_in_place @run, :pace %>
+    <%= best_in_place @run, :pace_in_secs %>
   </div>
