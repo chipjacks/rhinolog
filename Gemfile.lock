@@ -29,8 +29,13 @@ GEM
       i18n (~> 0.6)
       multi_json (~> 1.0)
     addressable (2.3.2)
+    annotate (2.5.0)
+      rake
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
+    best_in_place (1.1.2)
+      jquery-rails
+      rails (~> 3.1)
     builder (3.0.0)
     capybara (1.1.2)
       mime-types (>= 1.16)
@@ -171,6 +176,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate
+  best_in_place
   capybara
   coffee-rails (~> 3.2.1)
   devise

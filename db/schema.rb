@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120829015239) do
+ActiveRecord::Schema.define(:version => 20120829201736) do
+
+  create_table "runs", :force => true do |t|
+    t.integer  "user_id"
+    t.date     "date"
+    t.integer  "mins"
+    t.decimal  "distance",   :precision => 5, :scale => 2
+    t.integer  "pace"
+    t.integer  "feel",                                     :default => 2
+    t.datetime "created_at",                                              :null => false
+    t.datetime "updated_at",                                              :null => false
+  end
+
+  add_index "runs", ["user_id", "date"], :name => "index_runs_on_user_id_and_date"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

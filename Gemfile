@@ -11,6 +11,10 @@ group :development, :test do
 	gem 'rspec-rails'
 end
 
+group :development do
+  gem 'annotate'
+end
+
 group :test do
 	gem 'capybara'
 	gem 'spork'
@@ -37,6 +41,8 @@ gem 'jquery-rails'
 gem 'devise'
 
 gem 'simple_form'
+
+gem 'best_in_place'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

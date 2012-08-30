@@ -1,0 +1,18 @@
+<% provide(:title, @run.date) %>
+
+	<div class="span2">
+    <b>Date:</b>
+    <%= @run.date %>
+  </div>
+  <div class="span2">
+    <b>Time:</b>
+    <%= best_in_place @run, :mins %>
+  </div>
+  <div class="span2">
+    <b>Distance:</b>
+    <%= best_in_place @run, :distance %>
+  </div>
+  <div class="span2">
+    <b>Pace:</b>
+    <%= best_in_place @run, :pace %>
+  </div>
