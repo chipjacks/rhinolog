@@ -1,0 +1,20 @@
+<div class="pull-right">
+	Signed in as <strong><%= current_user.email %></strong>.
+	<%= link_to 'Edit profile', edit_user_registration_path %> |
+	<%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+</div>
+<div class="row">
+ <h1><%= base_title %></h1>
+</div>
+<table class="table">
+	<thead>
+		<tr>
+			<th>Date</th>
+			<th>Distance</th>
+			<th>Time</th>
+			<th>Pace</th>
+			<th></th>
+	</thead>
+	<%= render partial: 'shared/run_feed', collection: @runs %>
+</table>
+<%= render partial: 'shared/newrun_form' %>

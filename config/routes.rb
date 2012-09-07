@@ -1,7 +1,6 @@
 Runodo::Application.routes.draw do
   devise_for :users
-
-  resources :users, only: [:show]
+  
   resources :runs, only: [:create, :destroy, :show, :update]
 
   root to: 'static_pages#home'

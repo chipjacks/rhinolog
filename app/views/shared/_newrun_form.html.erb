@@ -1,0 +1,18 @@
+<legend>Deposit a new run</legend>
+<%= simple_form_for @run, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.error_notification %>
+  <%= f.error :base %>
+  <div class="form-inputs row">
+    <%= f.input :date, :required => true, 
+              :input_html => { :class => 'span2' } %>
+    <%= f.input :time_text, :required => true, 
+              :input_html => { :class => 'span2 newrun' } %>
+    <%= f.input :distance, :required => true,
+              :input_html => { :class => 'span2 newrun' } %>
+    <%= f.input :pace_text, :required => true,
+              :input_html => { :class => 'span2 newrun' } %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit, "Deposit" %>
+  </div>
+<% end %>

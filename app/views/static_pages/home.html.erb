@@ -1,47 +1,5 @@
 <% if user_signed_in? %>
-    <div class="pull-right">
-    	Signed in as <strong><%= current_user.email %></strong>.
-    	<%= link_to 'Edit profile', edit_user_registration_path %> |
-    	<%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-    </div>
-    <div class="row">
-  	 <h1><%= base_title %></h1>
-    </div>
-  	<table class="table">
-  		<thead>
-  			<tr>
-  				<th>Date</th>
-  				<th>Distance</th>
-  				<th>Time</th>
-  				<th>Pace</th>
-  		</thead>
-  		<%= render partial: 'shared/run_feed', collection: @runs %>
-  	</table>
-    <div class="row">
-    <legend>Deposit a new run</legend>
-    </div>
-  	<%= simple_form_for Run.new, :html => { :class => 'form-horizontal' } do |f| %>
-  	  <%= f.error_notification %>
-
-  	  <div class="form-inputs row">
-  	    <%= f.input :date, :required => true, :autofocus => true, :input_html => { :class => 'span2' } %>
-  	    <%= f.input :time, :required => true, :input_html => { :class => 'span2 newrun' } %>
-  	    <%= f.input :distance, :required => true, :input_html => { :class => 'span2 newrun' } %>
-  	    <%= f.input :pace, :required => true, :input_html => { :class => 'span2 newrun' } %>
-  	  </div>
-  	  <div class="form-actions">
-  	    <%= f.button :submit, "Deposit" %>
-  	  </div>
-  	<% end %>
-  <% else %>
-    <div class="hero-unit">
-    	<h1><%= base_title %></h1>
-    	<p>
-    		Welcome to <%= base_title %>. Open an account to get started.
-    	</p>
-    	<div class="btn-group">
-    		<%= link_to "Sign up", new_user_registration_path, class: "btn btn-large btn-primary" %>
-    		<%= link_to "Sign in", new_user_session_path, class: "btn btn-large" %>
-    	</div>
-    </div>
-  <% end %>
+  <%= render 'shared/signedin_home' %>
+<% else %>
+  <%= render 'shared/signup_home' %>
+<% end %>

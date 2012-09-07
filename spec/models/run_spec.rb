@@ -5,7 +5,7 @@
 #  id           :integer          not null, primary key
 #  user_id      :integer
 #  date         :date
-#  time_in_mins :integer
+#  time_in_secs :integer
 #  distance     :decimal(5, 2)
 #  pace_in_secs :integer
 #  feel         :integer          default(2)
@@ -17,7 +17,8 @@ require 'spec_helper'
 
 describe Run do
   let(:user) { FactoryGirl.create(:user) }
-  before { @run = user.runs.build(date: '2012-08-29', mins: '56', distance: '8', pace: '420') }
+  before { @run = user.runs.build(date: '2012-08-29', time_text: '1h 20m', 
+          distance: '12', pace_text: '7m 30s') }
 
   subject { @run }
 
@@ -40,18 +41,24 @@ describe Run do
     it { should_not be_valid }
   end
 
-  describe "with mins being blank" do
-    before { @run.mins = '' }
-    it { should_not be_valid }
+  describe "with time and pace being blank" do
+    before { @invalid_run = user.runs.build(date: '2012-08-29', time_text: '', 
+          distance: '12', pace_text: '') }
+
+    it { @invalid_run.should_not be_valid }
   end
 
-  describe "with distance being blank" do
-    before { @run.distance = '' }
-    it { should_not be_valid }
+  describe "with distance and pace being blank" do
+    before { @invalid_run = user.runs.build(date: '2012-08-29', time_text: '1h 20m', 
+          distance: '', pace_text: '') }
+
+    it { @invalid_run.should_not be_valid }
   end
 
-  describe "with pace being blank" do
-    before { @run.pace = '' }
-    it { should_not be_valid }
+  describe "with distance and time being blank" do
+    before { @invalid_run = user.runs.build(date: '2012-08-29', time_text: '', 
+          distance: '', pace_text: '7m 30s') }
+
+    it { @invalid_run.should_not be_valid }
   end
 end

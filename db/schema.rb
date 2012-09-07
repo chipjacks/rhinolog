@@ -11,12 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120830201556) do
+ActiveRecord::Schema.define(:version => 20120901222239) do
 
   create_table "runs", :force => true do |t|
     t.integer  "user_id"
     t.date     "date"
-    t.integer  "time_in_mins"
+    t.integer  "time_in_secs"
     t.decimal  "distance",     :precision => 5, :scale => 2
     t.integer  "pace_in_secs"
     t.integer  "feel",                                       :default => 2

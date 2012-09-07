@@ -4,15 +4,15 @@ describe "User pages" do
 
 	subject { page }
 
-  describe "Sign up page should" do
+  describe "Sign up page" do
 
   	before { visit new_user_registration_path }
 
-  	it { should have_selector('h1', text: 'Sign up') }
+  	it { should have_selector('legend', text: 'Sign up') }
   	it { should have_selector('title', text: 'Sign up') }
   end
 
-  describe "edit profile page should" do
+  describe "edit profile page" do
 
     let(:user) { FactoryGirl.create(:user) }
 
@@ -21,6 +21,6 @@ describe "User pages" do
       sign_in user
     end
 
-    it { should have_selector('h2', text: 'Edit') }
+    it { should have_selector('legend', text: 'Edit') }
   end
 end

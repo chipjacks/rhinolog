@@ -43,6 +43,8 @@ gem 'simple_form'
 
 gem 'best_in_place'
 
+gem 'chronic_duration'
+
 group :production do
   gem 'pg'
 end

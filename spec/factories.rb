@@ -7,9 +7,9 @@ FactoryGirl.define do
 
   factory :run do
     sequence(:date) { |n| Date.new(2012,8,29) + n }
-    mins '56'
+    time_in_secs '4800'
     distance '8'
-    pace '420'
+    pace_in_secs '600'
     user
   end
 end

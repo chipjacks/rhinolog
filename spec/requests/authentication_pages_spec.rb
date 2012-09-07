@@ -8,7 +8,7 @@ describe "Authentication pages" do
 
   	before { visit new_user_session_path }
 
-    it { should have_selector('h1', text: 'Sign in') }
+    it { should have_selector('legend', text: 'Sign in') }
     it { should have_selector('title', text: 'Sign in') }
 
   end
