@@ -4,7 +4,7 @@
   <%= f.error :base %>
   <div class="form-inputs row">
     <%= f.input :date, :required => true, 
-              :input_html => { :class => 'span2' } %>
+              :input_html => { :class => 'span2' }, :as => :string %>
     <%= f.input :time_text, :required => true, 
               :input_html => { :class => 'span2 newrun' } %>
     <%= f.input :distance, :required => true,

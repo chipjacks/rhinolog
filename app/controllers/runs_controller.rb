@@ -4,6 +4,12 @@ class RunsController < ApplicationController
 	before_filter :authenticate_user!, only: [:create, :destroy]
   before_filter :correct_user,   only: [:update, :destroy]
 
+  def index
+    @runs = Run.all
+    @runs_by_date = @runs.group_by(&:date)
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
+  end
+
 	def create
 		@run = current_user.runs.build(params[:run])
 		if @run.save

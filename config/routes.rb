@@ -1,7 +1,9 @@
 Runodo::Application.routes.draw do
   devise_for :users
   
-  resources :runs, only: [:create, :destroy, :show, :update]
+  resources :runs, only: [:create, :destroy, :show, :update, :index]
+
+  match '/month', to: 'runs#index'
 
   root to: 'static_pages#home'
 

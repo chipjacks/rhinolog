@@ -33,6 +33,8 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 
   gem 'bootstrap-sass', :git => 'https://github.com/chipjacks/bootstrap-sass'
+
+  gem 'jquery-ui-rails'
 end
 
 gem 'jquery-rails'

@@ -4,3 +4,7 @@
 
 jQuery ->
   $('.best_in_place').best_in_place()
+
+jQuery ->
+  $('#run_date').datepicker
+  	dateFormat: 'yy-mm-dd'
