@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/chipjacks/bootstrap-sass
+  revision: c13dcbe0802faea39958a8e7eac8a1eed2b8f85f
+  specs:
+    bootstrap-sass (2.1.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -36,7 +42,6 @@ GEM
     best_in_place (1.1.2)
       jquery-rails
       rails (~> 3.1)
-    bootstrap-sass (2.0.0)
     builder (3.0.0)
     capybara (1.1.2)
       mime-types (>= 1.16)
@@ -168,7 +173,7 @@ PLATFORMS
 DEPENDENCIES
   annotate
   best_in_place
-  bootstrap-sass
+  bootstrap-sass!
   capybara
   chronic_duration
   coffee-rails (~> 3.2.1)
