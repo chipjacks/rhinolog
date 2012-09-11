@@ -1,7 +1,7 @@
 module ApplicationHelper
 
 	def base_title
-		"Milefile"
+		"Rhino Log"
 	end
 
 	#Returns the full title ona per-page basis.

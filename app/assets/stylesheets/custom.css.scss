@@ -1,4 +1,13 @@
+$rhinoYellow: #ffc40d;
+$rhinoTungsten: #333333;
+
+$navbarBackground: 					$rhinoYellow;
+$navbarBackgroundHighlight: $rhinoYellow;
+$navbarText: 								$rhinoTungsten;
+$navbarLinkColor:           $rhinoTungsten;
+
 @import "bootstrap";
+@import "bootstrap-responsive";
 
 /* universal */
 
@@ -7,9 +16,9 @@ html {
 }
 
 body {
-	padding-top: 15px;
-	padding-right: 5%;
-	padding-left: 5%;
+	// padding-top: 60px;
+	// padding-right: 5%;
+	// padding-left: 5%;
 }
 
 section {
@@ -27,6 +36,10 @@ textarea {
 	}
 }
 
+.float-right {
+	float: right;
+}
+
 /* forms */
 
 .rundata {
@@ -36,7 +49,7 @@ textarea {
 }
 
 .newrun {
-	width: 100px;
+	width: 50%;
 }
 
 .table {
@@ -57,3 +70,48 @@ textarea {
   &:first-letter { text-transform: uppercase };
 }
 
+.yellow {
+	background-color: $rhinoYellow;
+	background-repeat: repeat-x;
+}
+
+/* Navbar */
+
+.nav-view-text {
+	font-weight: bold;
+	font-size: 125%;
+}
+
+.nav-account-text {
+	font-weight: bold;
+}
+
+.navbar .brand {
+	padding: 0 0 0 0;
+	margin-top: 3px;
+	width: 38%;
+	margin-left: 0.5%;
+}
+
+.navbar .btn, .navbar .btn-group {
+    margin-bottom: 5px;
+}
+
+.btn-navbar {
+    background-color: $rhinoTungsten;
+    background-image: -moz-linear-gradient(center top , $rhinoTungsten, $rhinoTungsten);
+    border-style: none;
+}
+
+.btn-navbar:hover, .btn-navbar:active, .btn-navbar.active {
+	background-color: $rhinoTungsten;
+}
+
+.navbar .nav .active > a, .navbar .nav .active > a:hover {
+	background-color: transparent;
+}
+
+.navbar .nav .dropdown-toggle .caret {
+	opacity: 1;
+	border-top-color: black;
+}
