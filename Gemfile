@@ -47,8 +47,6 @@ gem 'best_in_place'
 
 gem 'chronic_duration'
 
-gem 'client_side_validations'
-
 group :production do
   gem 'pg'
 end
