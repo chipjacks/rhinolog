@@ -1,0 +1,15 @@
+<div id="runs">
+  <h2 id="month">
+    <%= link_to "<", date: @date.prev_week %>
+    <%= disp_date_range(@date.beginning_of_week, @date.end_of_week) %>
+    <%= link_to ">", date: @date.next_week %>
+  </h2>
+  <% if @runs.empty? %>
+    <tr>
+      <td>No runs this week</td>
+      <td></td><td></td><td></td><td></td>
+    </tr>
+  <% else %>
+    <%= render :partial => "shared/run_feed", :collection => @runs %>
+  <% end %>
+</div>

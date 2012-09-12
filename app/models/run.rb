@@ -23,7 +23,7 @@ class Run < ActiveRecord::Base
   validates :time_in_secs, presence: true
   validates :pace_in_secs, presence: true
 
-  default_scope order: 'runs.date DESC'
+  default_scope order: 'runs.date ASC'
 
   attr_writer :pace_text
 

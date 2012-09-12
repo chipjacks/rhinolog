@@ -16,6 +16,9 @@ class RunsController < ApplicationController
 			flash[:success] = "Run created!"
 			redirect_to root_url
 		else
+      @runs = Run.all
+    @runs_by_date = @runs.group_by(&:date)
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
 			render 'static_pages/home'
 		end
   end

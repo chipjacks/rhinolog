@@ -1,21 +1,24 @@
-<tr>
-  <td>
-    <%= run_feed.date %>
-  </td>
-  <td>
-    <%= best_in_place run_feed, :distance, :inner_class => 'rundata' %>
-  </td>
-  <td>
-    <%= best_in_place run_feed, :time_text, :inner_class => 'rundata' %>
-  </td>
-  <td>
-    <%= best_in_place run_feed, :pace_text, :inner_class => 'rundata' %>
-  </td>
-  <td>
-    <%= link_to "delete", run_feed, method: :delete,
-                                     data: { confirm: "You sure?" } %>
-  </td>
-</tr>
+<% if run_feed.date %>
+  <tr>
+    <td>
+      <%= run_feed.date.strftime("%a") %>
+      <%= run_feed.date.strftime("%-m/%d") %>
+    </td>
+    <td>
+      <%= best_in_place run_feed, :distance, :inner_class => 'rundata' %>
+    </td>
+    <td>
+      <%= best_in_place run_feed, :time_text, :inner_class => 'rundata' %>
+    </td>
+    <td>
+      <%= best_in_place run_feed, :pace_text, :inner_class => 'rundata' %>
+    </td>
+    <td>
+      <%= link_to "delete", run_feed, method: :delete,
+                                       data: { confirm: "You sure?" } %>
+    </td>
+  </tr>
+<% end %>
 
 <!-- <div class="row">
   <div class="span2">

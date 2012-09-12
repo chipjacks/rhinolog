@@ -31,10 +31,15 @@ textarea {
 
 .center {
 	text-align: center;
+	vertical-align: middle;
 	h1	{
 		margin-bottom: 10px;
 	}
 }
+
+.vert-adjust {
+	margin-top: 8px;
+ }
 
 .float-right {
 	float: right;
@@ -75,6 +80,20 @@ textarea {
 	background-repeat: repeat-x;
 }
 
+#error_explanation {
+  color: #f00;
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .control-group;
+  @extend .error;
+  display: inline;
+}
+
 /* Navbar */
 
 .nav-view-text {
@@ -93,25 +112,37 @@ textarea {
 	margin-left: 0.5%;
 }
 
-.navbar .btn, .navbar .btn-group {
-    margin-bottom: 5px;
-}
+// .navbar .btn, .navbar .btn-group {
+//     margin-bottom: 5px;
+// }
 
-.btn-navbar {
-    background-color: $rhinoTungsten;
-    background-image: -moz-linear-gradient(center top , $rhinoTungsten, $rhinoTungsten);
-    border-style: none;
-}
+// .btn-navbar {
+//     background-color: $rhinoTungsten;
+//     background-image: -moz-linear-gradient(center top , $rhinoTungsten, $rhinoTungsten);
+//     border-style: none;
+// }
 
-.btn-navbar:hover, .btn-navbar:active, .btn-navbar.active {
-	background-color: $rhinoTungsten;
-}
+// .btn-navbar:hover, .btn-navbar:active, .btn-navbar.active {
+// 	background-color: $rhinoTungsten;
+// }
 
-.navbar .nav .active > a, .navbar .nav .active > a:hover {
-	background-color: transparent;
-}
+// .navbar .nav .active > a, .navbar .nav .active > a:hover {
+// 	background-color: transparent;
+// }
 
 .navbar .nav .dropdown-toggle .caret {
 	opacity: 1;
 	border-top-color: black;
+}
+
+/* Text */
+
+#new-run-text {
+	font-weight: bold;
+	margin-right: 10px;
+	vertical-align: middle;
+}
+
+#run-create-btn {
+
 }

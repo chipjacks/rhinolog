@@ -1,0 +1,16 @@
+<%= form_for(@run, :html => { :class => "form_inline" }, :validate => true) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="well center">
+    <span class="lead" id="new-run-text">New Run:</span>
+
+    <%= f.text_field(:date, class: 'input-small vert-adjust', placeholder: 'Date' ) %>
+
+    <%= f.number_field :distance, class: 'input-small vert-adjust', placeholder: 'Distance' %>
+
+    <%= f.text_field :time_text, class: 'input-small vert-adjust', placeholder: 'Time' %>
+
+    <%= f.text_field :pace_text, class: 'input-small vert-adjust', placeholder: 'Pace' %>
+
+    <%= f.submit "Log It!", class: "btn", id: 'run-create-btn' %>
+  </div>
+<% end %>
