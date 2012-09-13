@@ -15,12 +15,6 @@ html {
 	overflow-y: scroll;
 }
 
-body {
-	// padding-top: 60px;
-	// padding-right: 5%;
-	// padding-left: 5%;
-}
-
 section {
 	overflow: auto;
 }
@@ -112,24 +106,6 @@ textarea {
 	margin-left: 0.5%;
 }
 
-// .navbar .btn, .navbar .btn-group {
-//     margin-bottom: 5px;
-// }
-
-// .btn-navbar {
-//     background-color: $rhinoTungsten;
-//     background-image: -moz-linear-gradient(center top , $rhinoTungsten, $rhinoTungsten);
-//     border-style: none;
-// }
-
-// .btn-navbar:hover, .btn-navbar:active, .btn-navbar.active {
-// 	background-color: $rhinoTungsten;
-// }
-
-// .navbar .nav .active > a, .navbar .nav .active > a:hover {
-// 	background-color: transparent;
-// }
-
 .navbar .nav .dropdown-toggle .caret {
 	opacity: 1;
 	border-top-color: black;
@@ -141,8 +117,4 @@ textarea {
 	font-weight: bold;
 	margin-right: 10px;
 	vertical-align: middle;
-}
-
-#run-create-btn {
-
 }
