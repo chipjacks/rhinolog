@@ -10,7 +10,7 @@
       </a>
 
        <!-- Be sure to leave the brand out there if you want it shown -->
-      <a class="brand" href=<%= root_path %> ><%= image_tag "logo.png" %></a>
+      <a class="brand" href=<%= root_path %>> <%= image_tag "logo.png" %></a>
 
       <!-- Everything you want hidden at 940px or less, place within here -->
       <div class="nav-collapse">
@@ -19,12 +19,12 @@
                       current_page?(month_path)) %>
           <ul class="nav">
             <li class= <%="active" if current_page?(root_path)%> >
-              <a href="/" class="center nav-view-text">WEEK</a>
+              <a href="/" class="nav-view-text">WEEK</a>
             </li>
             <li class= <%="active" if 
                       current_page?(controller: 'runs', action: 'index') ||
                       current_page?(month_path) %> >
-              <a href="/month" class="center nav-view-text">MONTH</a>
+              <a href="/month" class="nav-view-text">MONTH</a>
             </li>
           </ul>
         <% end %>
@@ -48,7 +48,6 @@
         <% end %>
         </ul>
       </div>
-
     </div>
   </div>
 </div>

@@ -19,9 +19,9 @@ class Run < ActiveRecord::Base
 
   validates :user_id, presence: true
   validates :date, presence: true
-  validates :distance, presence: true
-  validates :time_in_secs, presence: true
-  validates :pace_in_secs, presence: true
+  # validates :distance, presence: true
+  # validates :time_in_secs, presence: true
+  # validates :pace_in_secs, presence: true
 
   default_scope order: 'runs.date ASC'
 
