@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/chipjacks/bootstrap-sass
-  revision: 384a60ac48762e20bf88dc54a7e4b44d61c83df2
+  revision: 14a8efb3bc4c2ef2caf888b72d8cad87465099f6
   specs:
     bootstrap-sass (2.1.0.0)
 
