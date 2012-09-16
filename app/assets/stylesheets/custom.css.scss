@@ -19,10 +19,6 @@ section {
 	overflow: auto;
 }
 
-textarea {
-	resize: vertical;
-}
-
 .center {
 	text-align: center;
 	vertical-align: middle;
@@ -30,10 +26,6 @@ textarea {
 		margin-bottom: 10px;
 	}
 }
-
-.vert-adjust {
-	margin-top: 8px;
- }
 
 .float-right {
 	float: right;
@@ -88,6 +80,16 @@ textarea {
   display: inline;
 }
 
+.vert-adjust {
+	margin-top: 8px;
+ }
+
+ #new-run-text {
+	font-weight: bold;
+	margin-right: 10px;
+	vertical-align: middle;
+}
+
 /* Navbar */
 
 .nav-view-text {
@@ -104,17 +106,4 @@ textarea {
 	margin-top: 3px;
 	width: 40%;
 	margin-left: 0.5%;
-}
-
-.navbar .nav .dropdown-toggle .caret {
-	opacity: 1;
-	border-top-color: black;
-}
-
-/* Text */
-
-#new-run-text {
-	font-weight: bold;
-	margin-right: 10px;
-	vertical-align: middle;
 }
