@@ -12,6 +12,7 @@ end
 
 group :development do
   gem 'annotate'
+  gem 'tunnlr_connector', :require => "tunnlr"
 end
 
 group :test do
@@ -46,6 +47,8 @@ gem 'simple_form'
 gem 'best_in_place'
 
 gem 'chronic_duration'
+
+gem 'twilio-ruby'
 
 group :production do
   gem 'pg'
