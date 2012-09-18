@@ -1,4 +1,12 @@
 <%= render partial: 'shared/oneline_run_form' %>
+<div id="runs">
+  <h2 id="month">
+    <%= link_to "<", date: @date.prev_week %>
+    <%= disp_date_range(@date.beginning_of_week, @date.end_of_week) %>
+    <%= link_to ">", date: @date.next_week %>
+  </h2>
+</div>
+
 <table class="table">
 	<thead>
 		<tr>
@@ -6,8 +14,34 @@
 			<th>Distance</th>
 			<th>Time</th>
 			<th>Pace</th>
+			<th>Comment</th>
 			<th></th>
 		</tr>
 	</thead>
 	<%= render partial: 'shared/week' %>
 </table>
+
+<% if !@runs.empty? %>
+	<div class="row">
+		<div class="span2">
+			<h3>Totals:</h3>
+		</div>
+		<div class="span2">
+			<h3>
+				<% dist = @runs.map {|h| h[:distance] }.reduce(:+) %>
+				<%= dist %> mi
+			</h3>
+		</div>
+		<div class="span2">
+			<h3>
+				<% time = @runs.map {|h| h[:time_in_secs] }.reduce(:+) %>
+				<%= ChronicDuration.output(time, :format => :short) %>
+			</h3>
+		</div>
+		<div class="span2">
+			<h3>
+			<%= ChronicDuration.output((time/dist).round, :format => :short) %>
+			</h3>
+		</div>
+	</div>
+<% end %>

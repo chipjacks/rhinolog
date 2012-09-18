@@ -90,6 +90,12 @@ section {
 	vertical-align: middle;
 }
 
+#run_comment {
+	margin-right: 5px;
+	resize: none;
+	width: 95%; 
+}
+
 /* Navbar */
 
 .nav-view-text {
@@ -106,4 +112,13 @@ section {
 	margin-top: 3px;
 	width: 40%;
 	margin-left: 0.5%;
+}
+
+/* Run week table */
+// .table tbody tr.warning td {
+// 	background-color: #FCF8E3;
+// }
+
+.comment-disp {
+	display: inline;
 }

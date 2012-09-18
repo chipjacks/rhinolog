@@ -16,4 +16,27 @@ module ApplicationHelper
 	def signed_in?
     !current_user.nil?
   end
+
+  def shorten(string)
+  	maxlength = 14
+  	if string.length > maxlength
+  		"#{string.slice(0, maxlength)}..."
+  	else
+  		string.slice(0, maxlength)
+  	end
+  end
+
+  def color(feel)
+  	case feel
+		when 1
+			"error"
+		when 2
+			"warning"
+		when 3
+			"success"
+		else
+			"info"
+		end
+	end
+
 end

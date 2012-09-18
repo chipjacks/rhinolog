@@ -1,15 +1,24 @@
 <%= form_for(@run, :html => { :class => "form_inline" }, :validate => true) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="well center">
-    <span class="lead" id="new-run-text">New Run:</span>
 
-    <%= f.text_field(:date, class: 'input-small vert-adjust', placeholder: 'Date' ) %>
+    <%= f.text_field(:date, class: 'input-small vert-adjust', 
+    					placeholder: 'Date' ) %>
 
-    <%= f.number_field :distance, class: 'input-small vert-adjust', placeholder: 'Distance' %>
+    <%= f.number_field :distance, class: 'input-small vert-adjust', 
+    					placeholder: 'Distance' %>
 
-    <%= f.text_field :time_text, class: 'input-small vert-adjust', placeholder: 'Time' %>
+    <%= f.text_field :time_text, class: 'input-small vert-adjust', 
+    					placeholder: 'Time' %>
 
-    <%= f.text_field :pace_text, class: 'input-small vert-adjust', placeholder: 'Pace' %>
+    <%= f.text_field :pace_text, class: 'input-small vert-adjust', 
+    					placeholder: 'Pace' %>
+
+    <p class="btn commentfield" rel="popover"><i class="icon-edit"></i> </p>
+
+    <%= f.hidden_field :comment, id: 'hidcommfield', value: '' %>
+
+    <%= f.select :feel,  [['Bad', 1], ['Okay', 2], ['Good', 3]], {}, :class => "input-small vert-adjust" %>
 
     <%= f.submit "Log It!", class: "btn", id: 'run-create-btn' %>
   </div>

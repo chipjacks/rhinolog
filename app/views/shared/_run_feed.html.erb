@@ -1,17 +1,25 @@
 <% if run_feed.date %>
-  <tr>
+  <tr class='<%= color(run_feed.feel) %>'>
     <td>
       <%= run_feed.date.strftime("%a") %>
       <%= run_feed.date.strftime("%-m/%d") %>
     </td>
     <td>
-      <%= best_in_place run_feed, :distance, :inner_class => 'rundata' %>
+      <%= run_feed.distance %>
     </td>
     <td>
-      <%= best_in_place run_feed, :time_text, :inner_class => 'rundata' %>
+      <%= run_feed.time_text %>
     </td>
     <td>
-      <%= best_in_place run_feed, :pace_text, :inner_class => 'rundata' %>
+      <%= run_feed.pace_text %>
+    </td>
+    <td>
+      <% if run_feed.comment %>
+        <p class="comment-disp" rel="popover" 
+          title='<%= run_feed.comment.html_safe %>'>
+          <%= shorten(run_feed.comment) %>
+        </p>
+      <% end %>
     </td>
     <td>
       <%= link_to "delete", run_feed, method: :delete,
@@ -19,22 +27,3 @@
     </td>
   </tr>
 <% end %>
-
-<!-- <div class="row">
-  <div class="span2">
-    <%= run_feed.date %>
-  </div>
-  <div class="span2">
-    <%= best_in_place run_feed, :distance, :inner_class => 'rundata' %>
-  </div>
-  <div class="span2">
-    <%= best_in_place run_feed, :time_text, :inner_class => 'rundata' %>
-  </div>
-  <div class="span2">
-    <%= best_in_place run_feed, :pace_text, :inner_class => 'rundata' %>
-  </div>
-  <div class="span2">
-    <%= link_to "delete", run_feed, method: :delete,
-                                     data: { confirm: "You sure?" } %>
-  </div>
-</div> -->

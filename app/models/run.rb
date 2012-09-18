@@ -14,7 +14,7 @@
 #
 
 class Run < ActiveRecord::Base
-  attr_accessible :date, :distance, :feel, :pace_text, :time_text
+  attr_accessible :date, :distance, :feel, :pace_text, :time_text, :comment
   belongs_to :user
 
   validates :user_id, presence: true
