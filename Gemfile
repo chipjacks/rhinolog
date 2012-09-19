@@ -48,6 +48,8 @@ gem 'best_in_place'
 
 gem 'chronic_duration'
 
+gem 'chronic'
+
 gem 'twilio-ruby'
 
 group :production do
