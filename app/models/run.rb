@@ -11,6 +11,7 @@
 #  feel         :integer          default(2)
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  comment      :text
 #
 
 class Run < ActiveRecord::Base
@@ -29,7 +30,6 @@ class Run < ActiveRecord::Base
 
   before_validation :save_pace_text,  :complete_fields
   validate :check_pace_text, :check_relationships
-
 
   def time_text
   	ChronicDuration.output(time_in_secs, :format => :short) if time_in_secs
@@ -76,4 +76,5 @@ class Run < ActiveRecord::Base
       self.errors.add(:base, "Not enough information to log a run")
     end
   end
+
 end

@@ -11,6 +11,7 @@
 #  feel         :integer          default(2)
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  comment      :text
 #
 
 require 'spec_helper'

@@ -15,7 +15,9 @@
 #  last_sign_in_ip        :string(255)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  phone                  :integer
 #
+include ActionView::Helpers::NumberHelper
 
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
@@ -25,8 +27,33 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :phone_text, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
 
+  attr_writer :phone_text
+
   has_many :runs, dependent: :destroy
+
+	before_validation :save_phone_text
+  validate :check_phone
+
+  def phone_text
+  	if @ohone_text
+  		@phone_text
+  	elsif self.phone
+  		number_to_phone(self.phone, area_code: :true)
+  	end
+  end
+
+  def save_phone_text
+  	@phone_text.gsub!(/\D/, '') if @phone_text.is_a?(String)
+    self[:phone] = @phone_text.to_i
+  end
+
+  def check_phone
+  	if self.phone.to_s.length != 10
+  		self.errors.add(:phone_text, "Please enter a 10 digit phone number")
+  	end
+  end
+
 end

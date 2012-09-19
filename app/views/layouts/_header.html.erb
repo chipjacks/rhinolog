@@ -14,16 +14,12 @@
 
       <!-- Everything you want hidden at 940px or less, place within here -->
       <div class="nav-collapse">
-        <% if signed_in? && (current_page?(root_path) || 
-                      current_page?(controller: 'runs', action: 'index') ||
-                      current_page?(month_path)) %>
+        <% if signed_in? && !controller.to_s.start_with?("#<Devise") %>
           <ul class="nav">
             <li class= <%="active" if current_page?(root_path)%> >
               <a href="/" class="nav-view-text">WEEK</a>
             </li>
-            <li class= <%="active" if 
-                      current_page?(controller: 'runs', action: 'index') ||
-                      current_page?(month_path) %> >
+            <li class= <%="active" if controller.controller_name == 'runs' && controller.action_name == 'index' %> >
               <a href="/month" class="nav-view-text">MONTH</a>
             </li>
           </ul>
@@ -38,7 +34,7 @@
               <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li><%= link_to current_user.email, '#' %></li>
+              <li><%= link_to current_user.email, :controller => "devise/registrations", :action => "edit" %></li>
               <li><%= link_to "Settings", edit_user_registration_path %></li>
               <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
             </ul>

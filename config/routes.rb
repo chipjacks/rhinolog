@@ -1,5 +1,8 @@
 Runodo::Application.routes.draw do
+
   devise_for :users
+
+  match 'users/edit', to: 'devise/registrations#edit'
   
   resources :runs, only: [:create, :destroy, :show, :update, :index]
 
