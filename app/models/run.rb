@@ -30,7 +30,8 @@ class Run < ActiveRecord::Base
   attr_writer :pace_text
 
   before_validation :save_pace_text,  :complete_fields
-  validate :check_pace_text, :check_relationships, :check_feel_effort
+  validate :check_pace_text, :check_relationships, :check_feel_effort, 
+      :check_distance
 
   def time_text
   	ChronicDuration.output(time_in_secs, :format => :short) if time_in_secs
@@ -41,7 +42,7 @@ class Run < ActiveRecord::Base
   end
 
   def rhinoGrid
-    3*self.feel+self.effort-3
+    3 * self.feel + self.effort - 3 if feel.present? && effort.present?
   end
 
   def rhinoGrid=(num)
@@ -95,11 +96,16 @@ class Run < ActiveRecord::Base
 
   def check_feel_effort
     unless (1..3) === feel
-      self.errors.add(:feel, "Invalid feel")
+      self.errors.add(:feel, "is invalid")
     end
     unless (1..3) === effort
-      self.errors.add(:effort, "Invalid effort #{effort}")
+      self.errors.add(:effort, "is invalid")
     end
   end
 
+  def check_distance
+    if distance == 0
+      self.errors.add(:distance, "is invalid")
+    end
+  end
 end

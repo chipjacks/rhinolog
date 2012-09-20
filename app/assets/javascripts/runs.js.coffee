@@ -7,7 +7,7 @@ jQuery ->
 
 jQuery ->
   $('#run_date').datepicker
-  	dateFormat: 'yy-mm-dd'
+  	dateFormat: 'mm/dd'
 
 # HTML code
 

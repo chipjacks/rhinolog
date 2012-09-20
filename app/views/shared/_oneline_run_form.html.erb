@@ -14,16 +14,16 @@
   <%= render 'shared/error_messages', object: f.object %>
   <div class="well center">
 
-    <%= f.text_field(:date, class: 'input-small vert-adjust', 
+    <%= f.text_field(:date, class: 'input-mini vert-adjust', 
     					placeholder: 'Date' ) %>
 
-    <%= f.number_field :distance, class: 'input-small vert-adjust', 
+    <%= f.text_field :distance, class: 'input-mini vert-adjust', 
     					placeholder: 'Distance' %>
 
-    <%= f.text_field :time_text, class: 'input-small vert-adjust', 
+    <%= f.text_field :time_text, class: 'input-mini vert-adjust', 
     					placeholder: 'Time' %>
 
-    <%= f.text_field :pace_text, class: 'input-small vert-adjust', 
+    <%= f.text_field :pace_text, class: 'input-mini vert-adjust', 
     					placeholder: 'Pace' %>
 
     <p class="btn commentfield" rel="popover"><i class="icon-edit"></i> </p>
