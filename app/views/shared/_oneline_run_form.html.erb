@@ -1,3 +1,15 @@
+<% rhinoGrid = '<div id="gridBox">
+            <p id="feelText">FEEL</p>
+            <div id="redsquare">
+                <span id="leftyellowsquare"></span>
+                <span id="leftgreensquare"></span>
+                <span id="bottomyellowsquare"></span>
+                <span id="bottomwhitesquare"></span>
+                <span id="bottomgreensquare"></span>
+                <p id="effortText">EFFORT</p>
+            </div>
+        </div>' %>
+
 <%= form_for(@run, :html => { :class => "form_inline" }, :validate => true) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="well center">
@@ -18,7 +30,9 @@
 
     <%= f.hidden_field :comment, id: 'hidcommfield', value: '' %>
 
-    <%= f.select :feel,  [['Bad', 1], ['Okay', 2], ['Good', 3]], {}, :class => "input-small vert-adjust" %>
+    <p class="btn rhinoGrid" rel="popover"><i class="icon-th"></i> </p>
+
+    <%= f.hidden_field :rhinoGrid, id: 'hidGrid' %>
 
     <%= f.submit "Log It!", class: "btn", id: 'run-create-btn' %>
   </div>

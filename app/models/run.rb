@@ -12,10 +12,12 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  comment      :text
+#  effort       :integer          default(2)
 #
 
 class Run < ActiveRecord::Base
-  attr_accessible :date, :distance, :feel, :pace_text, :time_text, :comment
+  attr_accessible :date, :distance, :feel, :effort, :pace_text, :time_text, 
+            :comment, :rhinoGrid
   belongs_to :user
 
   validates :user_id, presence: true
@@ -28,7 +30,7 @@ class Run < ActiveRecord::Base
   attr_writer :pace_text
 
   before_validation :save_pace_text,  :complete_fields
-  validate :check_pace_text, :check_relationships
+  validate :check_pace_text, :check_relationships, :check_feel_effort
 
   def time_text
   	ChronicDuration.output(time_in_secs, :format => :short) if time_in_secs
@@ -36,6 +38,18 @@ class Run < ActiveRecord::Base
 
   def time_text=(time)
     self.time_in_secs = ChronicDuration.parse(time) if time.present?
+  end
+
+  def rhinoGrid
+    3*self.feel+self.effort-3
+  end
+
+  def rhinoGrid=(num)
+    if num.present?
+      self.feel = (num.to_f/3).ceil
+      self.effort = num.to_i % 3
+      self.effort = 3 if num.to_i % 3 == 0
+    end
   end
 
   def pace_text
@@ -76,6 +90,15 @@ class Run < ActiveRecord::Base
   def check_relationships
     if !distance || !time_in_secs || !pace_in_secs 
       self.errors.add(:base, "Not enough information to log a run")
+    end
+  end
+
+  def check_feel_effort
+    unless (1..3) === feel
+      self.errors.add(:feel, "Invalid feel")
+    end
+    unless (1..3) === effort
+      self.errors.add(:effort, "Invalid effort #{effort}")
     end
   end
 
