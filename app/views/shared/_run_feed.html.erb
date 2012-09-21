@@ -15,15 +15,18 @@
     </td>
     <td>
       <% if run_feed.comment %>
-        <p class="comment-disp" rel="popover" 
-          title='<%= run_feed.comment.html_safe %>'>
-          <%= shorten(run_feed.comment) %>
-        </p>
+        <% if run_feed.comment.length > 80 %>
+          <p class="comment-disp" rel="popover" 
+            title='<%= run_feed.comment.html_safe %>'>
+            <%= shorten(run_feed.comment) %>
+          </p>
+        <% else %>
+          <p class="comment-disp"> <%= run_feed.comment %> </p>
+        <% end %>
       <% end %>
     </td>
     <td>
-      <%= link_to "delete", run_feed, method: :delete,
-                                       data: { confirm: "You sure?" } %>
+      <%= link_to '', run_feed, method: :delete, class: 'icon-remove pull-right' %>
     </td>
   </tr>
 <% end %>

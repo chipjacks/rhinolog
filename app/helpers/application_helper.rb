@@ -18,7 +18,7 @@ module ApplicationHelper
   end
 
   def shorten(string)
-  	maxlength = 14
+  	maxlength = 80
   	if string.length > maxlength
   		"#{string.slice(0, maxlength)}..."
   	else
@@ -38,5 +38,17 @@ module ApplicationHelper
 			"info"
 		end
 	end
+
+	def resource_name
+    :user
+  end
+
+  def resource
+    @resource ||= User.new
+  end
+
+  def devise_mapping
+    @devise_mapping ||= Devise.mappings[:user]
+  end
 
 end

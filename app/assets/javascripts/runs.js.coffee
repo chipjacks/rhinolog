@@ -6,7 +6,7 @@ jQuery ->
   $('.best_in_place').best_in_place()
 
 jQuery ->
-  $('#run_date').datepicker
+  $('#run_date_text').datepicker
   	dateFormat: 'mm/dd'
 
 # HTML code

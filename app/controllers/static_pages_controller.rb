@@ -6,6 +6,8 @@ class StaticPagesController < ApplicationController
   		@runs = current_user.runs.all(
   						:conditions => 
   						{:date => @date.beginning_of_week..@date.end_of_week})
+  	else
+  		@session = user_session
   	end
   end
 end

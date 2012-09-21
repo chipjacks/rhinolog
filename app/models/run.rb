@@ -16,7 +16,7 @@
 #
 
 class Run < ActiveRecord::Base
-  attr_accessible :date, :distance, :feel, :effort, :pace_text, :time_text, 
+  attr_accessible :date_text, :distance, :feel, :effort, :pace_text, :time_text, 
             :comment, :rhinoGrid
   belongs_to :user
 
@@ -32,6 +32,14 @@ class Run < ActiveRecord::Base
   before_validation :save_pace_text,  :complete_fields
   validate :check_pace_text, :check_relationships, :check_feel_effort, 
       :check_distance
+
+  def date_text=(date)
+    self.date = Chronic.parse(date).to_s if date.present?
+  end
+
+  def date_text
+    Chronic.parse(date).to_s if date
+  end
 
   def time_text
   	ChronicDuration.output(time_in_secs, :format => :short) if time_in_secs

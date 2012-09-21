@@ -5,6 +5,7 @@ class RunsController < ApplicationController
   before_filter :correct_user,   only: [:update, :destroy]
 
   def index
+    @run = current_user.runs.build(params[:run])
     @runs = current_user.runs.all
     @runs_by_date = @runs.group_by(&:date)
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
@@ -14,7 +15,7 @@ class RunsController < ApplicationController
 		@run = current_user.runs.build(params[:run])
 		if @run.save
 			flash[:success] = "Run created!"
-			redirect_to root_url
+			redirect_to :back
 		else
       @runs = current_user.runs.all
       @runs_by_date = @runs.group_by(&:date)
