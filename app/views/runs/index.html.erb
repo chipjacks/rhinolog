@@ -15,8 +15,7 @@
         <% if @runs_by_date[date] %>
           <ul>
             <% day_totals.push(@runs_by_date[date].map {|h| h[:distance] }.reduce(:+)) %>
-            <a href="#" rel="tooltip" title="<%=list_runs(@runs_by_date[date])%>" class="day_total">
-              <%= sprintf("%g", day_totals.last) %></a>
+            <%= link_to sprintf('%g', day_totals.last), root_path(date: date) %>
           </ul>
         <% else %>
           <% day_totals.push(0) %>
