@@ -88,3 +88,6 @@ jQuery ->
 
 jQuery ->
 	$(".comment-disp").tooltip({ placement : 'bottom' })
+
+jQuery ->
+	$(".deleteicon").tooltip({ placement : 'top' })

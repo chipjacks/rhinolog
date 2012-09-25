@@ -13,15 +13,13 @@ class RunsController < ApplicationController
 
 	def create
 		@run = current_user.runs.build(params[:run])
-		if @run.save
-			flash[:success] = "Run created!"
-			redirect_to :back
-		else
-      @runs = current_user.runs.all
-      @runs_by_date = @runs.group_by(&:date)
-      @date = params[:date] ? Date.parse(params[:date]) : Date.today
-			render 'static_pages/home'
-		end
+    if @run.save
+      flash[:success] = "Run created!" 
+      redirect_to root_path({ date: @run.date })
+    else
+      params[:date] = @run.date ? @run.date : Date.today
+      redirect_to root_path(request.parameters)
+    end
   end
 
   def update
@@ -35,7 +33,7 @@ class RunsController < ApplicationController
 
   def destroy
   	@run.destroy
-  	redirect_to root_url
+  	redirect_to :back
   end
 
   private

@@ -27,10 +27,10 @@ class Run < ActiveRecord::Base
 
   default_scope order: 'runs.date ASC'
 
-  attr_writer :pace_text
+  attr_writer :pace_text, :time_text
 
-  before_validation :save_pace_text,  :complete_fields
-  validate :check_pace_text, :check_relationships, :check_feel_effort, 
+  before_validation :save_pace_text, :save_time_text, :complete_fields
+  validate :check_pace_text, :check_time_text, :check_relationships, :check_feel_effort, 
       :check_distance
 
   def date_text=(date)
@@ -38,16 +38,20 @@ class Run < ActiveRecord::Base
   end
 
   def date_text
-    Chronic.parse(date).to_s if date
+    Chronic.parse(date).strftime("%m/%d") if date
   end
 
   def time_text
-  	ChronicDuration.output(time_in_secs, :format => :short) if time_in_secs
+    if @time_text
+      @time_text
+    elsif time_in_secs
+      ChronicDuration.output(time_in_secs, :format => :short) 
+    end
   end
 
-  def time_text=(time)
-    self.time_in_secs = ChronicDuration.parse(time) if time.present?
-  end
+  # def time_text=(time)
+  #   self.time_in_secs = ChronicDuration.parse(time) if time.present?
+  # end
 
   def rhinoGrid
     3 * self.feel + self.effort - 3 if feel.present? && effort.present?
@@ -55,7 +59,7 @@ class Run < ActiveRecord::Base
 
   def rhinoGrid=(num)
     if num.present?
-      self.feel = (num.to_f/3).ceil
+      self.feel = ((10-num.to_f)/3).ceil
       self.effort = num.to_i % 3
       self.effort = 3 if num.to_i % 3 == 0
     end
@@ -81,6 +85,18 @@ class Run < ActiveRecord::Base
     end
   rescue ArgumentError
     errors.add :pace_text, "is out of range"
+  end
+
+  def save_time_text
+    self.time_in_secs = ChronicDuration.parse(@time_text) if @time_text.present?
+  end
+
+  def check_time_text
+    if @time_text.present? && ChronicDuration.parse(@time_text).nil?
+      errors.add :time_text, "cannot be parsed"
+    end
+  rescue ArgumentError
+    errors.add :time_text, "is out of range"
   end
 
   def complete_fields

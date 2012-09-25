@@ -1,7 +1,19 @@
+$gridRed: #FF3030;
+$gridYellow: #FFF68F;
+$gridGreen: #00ff66;
+$rhinoTungsten: #333333;
+
 /* Run week table */
 
-.table tbody tr.warning td {
-  background-color: #FCF8E3;
+.error-bullets {
+  padding-left: 14px;
+}
+
+/* Run week table */
+
+.table .no-side-pad {
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .comment-disp {
@@ -15,25 +27,71 @@
   width: 95%; 
 }
 
+#deleteicon {
+  display: inline;
+}
+
+.table .leftend {
+  padding-left: 0px;
+}
+
+.leftbox {
+  width: 10px;
+  height: 100%;
+  display: inline-block;
+}
+
+.red {
+  background-color: $gridRed;
+}
+
+.yellow {
+  background-color: $gridYellow;
+}
+
+.green {
+  background-color: $gridGreen;
+}
+
 
 //Run Calendar
+
+.days {
+  width: 86%;
+  display: inline-block;
+  min-width: 495px;
+}
+
+#runs .totalscolumn ul {
+  margin-top: 30%;
+}
+
+.totalscolumn {
+  width: 13%;
+  display: inline-block;
+}
+
+#runs .row {
+  margin-left: 0px;
+  min-width: 575px;
+}
 
 #runs .calendar {
   border-collapse: collapse;
   width: 100%;
 
   td, th {
-    font-family: "Lucida Grande", arial, helvetica, sans-serif;
-    font-size: 10px;
+
+    font-size: 14px;
     padding: 6px;
     border: 1px solid #999;
   }
 
   th {
-    background: #DDD;
+    background: whiteSmoke;
     color: #666;
     text-align: center;
-    width: 14.2857142857143%;
+    width: 12.5%; //14.2857142857143%;
   }
 
   td {
@@ -56,20 +114,18 @@
   a {
     text-decoration: none;
     padding: 0 10px;
-    color: #999;
   }
 }
 
 #runs ul {
-  font-size: 11px;
-  padding-left: 20px;
+  font-size: 40px;
+  padding-left: 0px;
+  text-align: center;
+  margin-left: 0px;
+  margin-top: 10%;
 }
 
 // RhinoGrid Feel/Effort Grid
-
-$gridRed: #FF0000;
-$gridYellow: #FFFF00;
-$gridGreen: #00ff66;
 
 #gridBox {
   width: 125px;

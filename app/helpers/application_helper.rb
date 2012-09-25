@@ -26,16 +26,14 @@ module ApplicationHelper
   	end
   end
 
-  def color(feel)
-  	case feel
+	def color(num)
+  	case num
 		when 1
-			"error"
+			"green"
 		when 2
-			"warning"
+			"yellow"
 		when 3
-			"success"
-		else
-			"info"
+			"red"
 		end
 	end
 

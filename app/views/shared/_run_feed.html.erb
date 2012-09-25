@@ -1,11 +1,12 @@
 <% if run_feed.date %>
-  <tr class='<%= color(run_feed.feel) %>'>
+  <tr>
+    <td class="<%= color(run_feed.feel) %>"></td>
     <td>
       <%= run_feed.date.strftime("%a") %>
       <%= run_feed.date.strftime("%-m/%d") %>
     </td>
     <td>
-      <%= run_feed.distance %>
+      <%= sprintf("%g", run_feed.distance) %>
     </td>
     <td>
       <%= run_feed.time_text %>
@@ -26,7 +27,10 @@
       <% end %>
     </td>
     <td>
-      <%= link_to '', run_feed, method: :delete, class: 'icon-remove pull-right' %>
+      <%= link_to '', run_feed, method: :delete, 
+        class: 'icon-remove deleteicon pull-right', rel: 'tooltip', 
+          title: 'delete'%>
     </td>
+    <td class="<%= color(run_feed.effort) %>"></td>
   </tr>
 <% end %>

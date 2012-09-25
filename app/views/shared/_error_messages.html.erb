@@ -3,7 +3,9 @@
     <button type="button" class="close" data-dismiss="alert">×</button>
     <h4>Try again!</h4>
     <% object.errors.full_messages.each do |msg| %>
+    <div class="error-bullets">
       <li> <%= msg %></li>
+    </div>
     <% end %>
   </div>
 <% end %>

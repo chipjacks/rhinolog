@@ -1,19 +1,44 @@
 <%= render partial: 'shared/oneline_run_form' %>
 
+<% day_totals = Array.new %>
+
 <div id="runs">
   <h2 id="month">
     <%= link_to "<", date: @date.prev_month %>
     <%= @date.strftime("%B %Y") %>
     <%= link_to ">", date: @date.next_month %>
   </h2>
-  <%= calendar @date do |date| %>
-    <%= date.day %>
-    <% if @runs_by_date[date] %>
-      <ul>
-        <% @runs_by_date[date].each do |run| %>
-          <li><%= link_to run.distance, run %></li>
+  <div class="row">
+    <div class="days">
+      <%= calendar @date do |date| %>
+        <%= date.day %>
+        <% if @runs_by_date[date] %>
+          <ul>
+            <% day_totals.push(@runs_by_date[date].map {|h| h[:distance] }.reduce(:+)) %>
+            <%= link_to "#{sprintf("%g", day_totals.last)}" %>
+          </ul>
+        <% else %>
+          <% day_totals.push(0) %>
         <% end %>
-      </ul>
-    <% end %>
-  <% end %>
+      <% end %>
+    </div>
+    <div class="totalscolumn">
+      <table class='calendar'>
+        <tbody>
+          <tr>
+            <th>
+              Totals
+            </th>
+          </tr>
+          <% day_totals.in_groups_of(7).each do |week| %>
+            <tr><td class='total'>
+              <ul>
+              <%= sprintf("%g", week.reduce(:+)) unless week.reduce(:+) == 0 %>
+              </ul>
+            </td></tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
