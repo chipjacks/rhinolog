@@ -91,3 +91,8 @@ jQuery ->
 
 jQuery ->
 	$(".deleteicon").tooltip({ placement : 'top' })
+
+#Month view tooltips
+
+jQuery ->
+	$(".day_total").tooltip({ placement : 'top' })

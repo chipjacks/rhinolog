@@ -26,17 +26,6 @@ module ApplicationHelper
   	end
   end
 
-	def color(num)
-  	case num
-		when 1
-			"green"
-		when 2
-			"yellow"
-		when 3
-			"red"
-		end
-	end
-
 	def resource_name
     :user
   end
