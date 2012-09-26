@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120920025904) do
+ActiveRecord::Schema.define(:version => 20120926050704) do
 
   create_table "runs", :force => true do |t|
     t.integer  "user_id"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(:version => 20120920025904) do
     t.integer  "feel",                                       :default => 2
     t.datetime "created_at",                                                :null => false
     t.datetime "updated_at",                                                :null => false
-    t.text     "comment"
+    t.text     "notes"
     t.integer  "effort",                                     :default => 2
   end
 

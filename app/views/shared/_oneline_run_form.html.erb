@@ -26,14 +26,16 @@
     <%= f.text_field :pace_text, class: 'input-mini vert-adjust', 
     					placeholder: 'Pace' %>
 
-    <p class="btn commentfield" rel="popover"><i class="icon-edit"></i> </p>
+    <p class="btn notesfield" rel="popover"><i class="icon-edit"></i> </p>
 
-    <%= f.hidden_field :comment, id: 'hidcommfield', value: '' %>
+    <%= f.hidden_field :notes, id: 'hidnotefield', value: '' %>
 
     <p class="btn rhinoGrid" rel="popover"><i class="icon-th"></i> </p>
 
     <%= f.hidden_field :rhinoGrid, id: 'hidGrid' %>
 
     <%= f.submit "Log It!", class: "btn", id: 'run-create-btn' %>
+
+    <br><small>Fill in two of distance, time, and pace. Third will be calculated automatically.</small>
   </div>
 <% end %>

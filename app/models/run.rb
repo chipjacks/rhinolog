@@ -17,7 +17,7 @@
 
 class Run < ActiveRecord::Base
   attr_accessible :date_text, :distance, :feel, :effort, :pace_text, :time_text, 
-            :comment, :rhinoGrid
+            :notes, :rhinoGrid
   belongs_to :user
 
   validates :user_id, presence: true

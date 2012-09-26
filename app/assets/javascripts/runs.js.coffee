@@ -11,9 +11,9 @@ jQuery ->
 
 # HTML code
 
-comment_content = (content) ->
-	'<textarea cols="10" id="run_comment" name="run[comment]" rows="5" 
-					placeholder="Add comment">' + content + '</textarea>'
+notes_content = (content) ->
+	'<textarea cols="10" id="run_notes" name="run[notes]" rows="5" 
+					placeholder="Add note">' + content + '</textarea>'
 
 rhinoGrid = 
 	'<div id="gridBox">
@@ -53,13 +53,13 @@ rhinoGridTemp =
 # Oneline run form popovers
 
 jQuery ->
- 	$(".commentfield").popover({ trigger : 'manual', html : true, content : comment_content($('#hidcommfield').val()), placement : 'bottom' })
+ 	$(".notesfield").popover({ trigger : 'manual', html : true, content : notes_content($('#hidnotefield').val()), placement : 'bottom' })
 
 jQuery ->
-	$(".commentfield").click ->
-		$('.commentfield').data('popover').options.content = comment_content($('#hidcommfield').val());
-		if $('#run_comment').length
-			$('#hidcommfield').val($('#run_comment').val())
+	$(".notesfield").click ->
+		$('.notesfield').data('popover').options.content = notes_content($('#hidnotefield').val());
+		if $('#run_notes').length
+			$('#hidnotefield').val($('#run_notes').val())
 		$(this).popover('toggle') 	
 
 jQuery ->
@@ -81,13 +81,13 @@ jQuery ->
 	$("#run-create-btn").click ->
 		if $('.gridInner').length
 			$('#hidGrid').val($('.gridButton.active').attr('id'))
-		if $('#run_comment').length
-			$('#hidcommfield').val($('#run_comment').val())
+		if $('#run_notes').length
+			$('#hidnotefield').val($('#run_notes').val())
 
-# Run comment tooltips
+# Run notes tooltips
 
 jQuery ->
-	$(".comment-disp").tooltip({ placement : 'bottom' })
+	$(".notes-disp").tooltip({ placement : 'bottom' })
 
 jQuery ->
 	$(".deleteicon").tooltip({ placement : 'top' })
@@ -95,4 +95,7 @@ jQuery ->
 #Month view tooltips
 
 jQuery ->
-	$(".day_total").tooltip({ placement : 'top' })
+	$(".feel").tooltip({ placement : 'right' })
+
+jQuery ->
+	$(".effort").tooltip({ placement : 'left' })

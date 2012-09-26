@@ -12,6 +12,9 @@ Runodo::Application.routes.draw do
 
   match '/sms', to: 'receive_text#index'
 
+  get "static_pages/help"
+  get "static_pages/about"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

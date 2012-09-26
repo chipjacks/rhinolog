@@ -46,14 +46,22 @@ module ReceiveTextHelper
         end
       elsif tok.upcase.include?("FEEL")
         if feel = tok.match(/(good|okay|bad)/i)[0]
-          run_data[:feel] = 1 if feel == "bad"
+          run_data[:feel] = 1 if feel == "good"
           run_data[:feel] = 2 if feel == "okay"
-          run_data[:feel] = 3 if feel == "good"
+          run_data[:feel] = 3 if feel == "bad"
         else
           errors.push("feel")
         end
+      elsif tok.upcase.include?("EFF")
+        if effort = tok.match(/(easy|med|mod|hard)/i)[0]
+          run_data[:effort] = 1 if effort == "easy"
+          run_data[:effort] = 2 if effort == "med" || effort == "mod"
+          run_data[:effort] = 3 if effort == "hard"
+        else
+          errors.push("effort")
+        end
       elsif tok.upcase.include?("NOTE")
-        run_data[:comment] = tok.gsub(/(note)(s:|s|:| )/i, '').strip
+        run_data[:notes] = tok.gsub(/(note)(s:|s|:| )/i, '').strip
       end
     end
 

@@ -1,6 +1,6 @@
 <% if run_feed.date %>
   <tr>
-    <td class="<%= color(run_feed.feel) %>"></td>
+    <td class="feel <%= color(run_feed.feel)%>" rel="tooltip" title="Feel: <%= feel_title(run_feed.feel)%>" ></td>
     <td>
       <%= run_feed.date.strftime("%a") %>
       <%= run_feed.date.strftime("%-m/%d") %>
@@ -15,14 +15,14 @@
       <%= run_feed.pace_text %>
     </td>
     <td>
-      <% if run_feed.comment %>
-        <% if run_feed.comment.length > 80 %>
-          <p class="comment-disp" rel="popover" 
-            title='<%= run_feed.comment.html_safe %>'>
-            <%= shorten(run_feed.comment) %>
+      <% if run_feed.notes %>
+        <% if run_feed.notes.length > 80 %>
+          <p class="notes-disp" rel="popover" 
+            title='<%= run_feed.notes.html_safe %>'>
+            <%= shorten(run_feed.notes) %>
           </p>
         <% else %>
-          <p class="comment-disp"> <%= run_feed.comment %> </p>
+          <p class="notes-disp"> <%= run_feed.notes %> </p>
         <% end %>
       <% end %>
     </td>
@@ -31,6 +31,6 @@
         class: 'icon-remove deleteicon pull-right', rel: 'tooltip', 
           title: 'delete'%>
     </td>
-    <td class="<%= color(run_feed.effort) %>"></td>
+    <td class="effort <%= color(run_feed.effort) %>" rel="tooltip" title="Effort: <%= effort_title(run_feed.effort) %>"></td>
   </tr>
 <% end %>

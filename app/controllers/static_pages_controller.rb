@@ -15,4 +15,10 @@ class StaticPagesController < ApplicationController
   		@session = user_session
   	end
   end
+
+  def help
+  end
+
+  def about
+  end
 end

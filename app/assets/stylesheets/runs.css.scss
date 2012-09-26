@@ -3,7 +3,7 @@ $gridYellow: #FFF68F;
 $gridGreen: #00ff66;
 $rhinoTungsten: #333333;
 
-/* Run week table */
+/* Run from errors */
 
 .error-bullets {
   padding-left: 14px;
@@ -16,12 +16,12 @@ $rhinoTungsten: #333333;
   padding-right: 0px;
 }
 
-.comment-disp {
+.notes-disp {
   display: inline;
   margin-bottom: 0px;
 }
 
-#run_comment {
+#run_notes {
   margin-right: 5px;
   resize: none;
   width: 95%; 
@@ -53,6 +53,13 @@ $rhinoTungsten: #333333;
   background-color: $gridGreen;
 }
 
+.no-bot-marg {
+  margin-bottom: 0px;
+}
+
+.align-right {
+  text-align: right;
+}
 
 //Run Calendar
 

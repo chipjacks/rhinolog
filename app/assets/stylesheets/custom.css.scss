@@ -107,3 +107,29 @@ section {
 	width: 40%;
 	margin-left: 0px;
 }
+
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid $gray;
+  color: $grayLight;
+	a {
+  	color: #555;
+  	&:hover {
+  		color: $grayDarker;
+  	}
+	}
+	small {
+		float: left;
+	}
+	ul {
+		float: right;
+		list-style: none;
+		li {
+			float: left;
+			margin-left: 10px;
+		}
+	}
+}
