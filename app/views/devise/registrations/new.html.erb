@@ -1,23 +1,27 @@
 <% provide(:title, "Sign up") %>
 
-<legend>Sign up</legend>
+<div class="row">
+  <div class="span10 offset1">
+    <legend>Sign up</legend>
 
-<%= simple_form_for(resource, :as => resource_name, 
-				:url => registration_path(resource_name),
-				:html => { :class => 'form-horizontal' }) do |f| %>
-  <%= f.error_notification %>
+    <%= simple_form_for(resource, :as => resource_name, 
+    				:url => registration_path(resource_name),
+    				:html => { :class => 'form-horizontal' }) do |f| %>
+      <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email, :required => true, :autofocus => true %>
-    <%= f.input :phone_text, label: 'Phone', as: :tel, 
-            hint: "Required for SMS logging" %>
-    <%= f.input :password, :required => true %>
-    <%= f.input :password_confirmation, :required => true %>
-  </div>
+      <div class="form-inputs">
+        <%= f.input :email, :required => true, :autofocus => true %>
+        <%= f.input :phone_text, label: 'Phone', as: :tel, 
+                hint: "Required for SMS logging" %>
+        <%= f.input :password, :required => true %>
+        <%= f.input :password_confirmation, :required => true %>
+      </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
+      <div class="form-actions">
+        <%= f.button :submit, "Sign up" %>
+      </div>
+    <% end %>
 
-<%= render "devise/shared/links" %>
+    <%= render "devise/shared/links" %>
+</div>
+</div>

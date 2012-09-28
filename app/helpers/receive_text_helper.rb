@@ -21,7 +21,7 @@ module ReceiveTextHelper
     tokens.each do |tok|
       tok.strip!
       if tok.upcase.include?("DATE")
-        if date = Chronic.parse(tok, context: :past)
+        if date = Chronic.parse(tok, context: :past).to_date
           run_data[:date] = date
         else
           errors.push("date")

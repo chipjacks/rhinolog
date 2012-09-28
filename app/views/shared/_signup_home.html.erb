@@ -29,12 +29,15 @@
 	</div>
 	<div class="row">
 		<div class="span4 offset1">
-			<h3>
-				Log runs via SMS messages
+			<h3 style='text-align: right'>
+				Don't like sweating all over your keyboard?
 			</h3>
+			<p class="lead" style='text-align: right'>
+				Send a text to (208)35RHINO instead
+			</p>
 		</div>
 		<div class="span4 offset1">
-			<%= image_tag "celltext.png"%>
+			<%= image_tag "celltext.png", id: 'cell-image', class: 'feature-image'%>
 		</div>
 	</div>
 	<div class="row">
@@ -44,12 +47,15 @@
 	</div>
 	<div class="row">
 		<div class="span4 offset1">
-			<%= image_tag "weekview.png"%>
+			<%= image_tag "week_view.png", class: 'feature-image', id: 'week-view'%>
 		</div>
 		<div class="span4 offset1">
 			<h3>
-				Quickly log and view weeks and months training online
+				Run hard, log easy
 			</h3>
+			<p class="lead">
+				Simple and intuitive user interface
+			</p>
 		</div>
 	</div>
 	<div class="row">
@@ -59,14 +65,39 @@
 	</div>
 	<div class="row">
 		<div class="span4 offset1">
-			<h3>
-				Easily visualize run effort and feel data using RhinoGrid
+			<h3 style='text-align: right'>
+				RhinoGrid
 			</h3>
+			<p class="lead" style='text-align: right'>
+				Easily track and visualize feel and effort data
+			</p>
 		</div>
 		<div class="span4 offset1">
-			<h3>
-				RhinoGrid pic
+			<%= image_tag "rhinogrid.png", class: 'feature-image', id: 'rhinogrid'%>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span10 offset1">
+			<hr>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span9 offset1">
+			<h3 style='text-align: center'>
+				More features and refinements to come!
 			</h3>
+		</div>
+	</div>
+	<div class="row">	
+		<div class="span9 offset1">
+			<p class="lead" style='text-align: center'>
+				So give it a shot, it's 100% free!
+			</p>
+		</div>
+	</div>
+	<div class="row">	
+		<div class="span3 offset4">
+			<%= link_to "Sign Up!", new_user_registration_path, class: "btn btn-large btn-primary btn-block" %>
 		</div>
 	</div>
 </div>

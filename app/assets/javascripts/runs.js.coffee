@@ -28,17 +28,17 @@ rhinoGrid =
 		</div>
 	</div>
 	<div class="btn-group" id="gridfore" data-toggle="buttons-radio">
-		<a class="btn btn-small gridButton gridCornerButton" id="1" href="#"><i class="icon-plus"></i></a>
-		<a class="btn btn-small gridButton" id="2" href="#"><i class="icon-plus"></i></a>
-		<a class="btn btn-small gridButton" id="3" href="#"><i class="icon-plus"></i></a>
+		<a class="btn btn-small gridButton gridCornerButton" id="1" href="#"><i class="icon-nil"></i></a>
+		<a class="btn btn-small gridButton" id="2" href="#"><i class="icon-nil"></i></a>
+		<a class="btn btn-small gridButton" id="3" href="#"><i class="icon-nil"></i></a>
 		<br>
-		<a class="btn btn-small gridButton" id="4" href="#"><i class="icon-plus"></i></a>
-		<a class="btn btn-small gridButton" id="5" href="#"><i class="icon-plus"></i></a>
-		<a class="btn btn-small gridButton" id="6" href="#"><i class="icon-plus"></i></a>
+		<a class="btn btn-small gridButton" id="4" href="#"><i class="icon-nil"></i></a>
+		<a class="btn btn-small gridButton" id="5" href="#"><i class="icon-nil"></i></a>
+		<a class="btn btn-small gridButton" id="6" href="#"><i class="icon-nil"></i></a>
 		<br>
-		<a class="btn btn-small gridButton" id="7" href="#"><i class="icon-plus"></i></a>
-		<a class="btn btn-small gridButton" id="8" href="#"><i class="icon-plus"></i></a>
-		<a class="btn btn-small gridButton gridCornerButton" id="9" href="#"><i class="icon-plus"></i></a>
+		<a class="btn btn-small gridButton" id="7" href="#"><i class="icon-nil"></i></a>
+		<a class="btn btn-small gridButton" id="8" href="#"><i class="icon-nil"></i></a>
+		<a class="btn btn-small gridButton gridCornerButton" id="9" href="#"><i class="icon-nil"></i></a>
 	</div>'
 
 rhinoGridTemp =
