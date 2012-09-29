@@ -108,7 +108,7 @@ class Run < ActiveRecord::Base
       self.time_in_secs = pace_in_secs * distance
     end
     if !self.date
-      self.date = Date.today
+      self.date = Time.zone.now.to_date
     end
   end
 
