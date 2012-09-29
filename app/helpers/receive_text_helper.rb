@@ -22,7 +22,7 @@ module ReceiveTextHelper
       tok.strip!
       if tok.upcase.include?("DATE")
         if date = Chronic.parse(tok, context: :past).to_date
-          run_data[:date] = date
+          run_data[:date_text] = date.to_s
         else
           errors.push("date")
         end
