@@ -14,7 +14,7 @@ class ReceiveTextController < ApplicationController
 
 	    if newrun.valid?
 	    	newrun.save!
-		    @response = "Logged succesfully. " + Date.today.to_s
+		    @response = "Logged succesfully."
 		  else
 		  	@response = "Unable to log run. "
 		  	if run_data[:errors].empty?
