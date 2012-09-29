@@ -60,18 +60,20 @@ class User < ActiveRecord::Base
   def phone_text
   	if @ohone_text
   		@phone_text
-  	elsif self.phone
+  	elsif self.phone != 0
   		number_to_phone(self.phone, area_code: :true)
   	end
   end
 
   def save_phone_text
-  	@phone_text.gsub!(/\D/, '') if @phone_text.is_a?(String)
-    self[:phone] = @phone_text.to_i
+  	if @phone_text.is_a?(String)
+      @phone_text.gsub!(/\D/, '')
+      self[:phone] = @phone_text.to_i
+    end
   end
 
   def check_phone
-  	if self.phone.to_s.length != 10
+  	if !self.phone_text.blank? && self.phone.to_s.length != 10
   		self.errors.add(:phone_text, "Please enter a 10 digit phone number")
   	end
   end

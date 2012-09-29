@@ -28,17 +28,17 @@ rhinoGrid =
 		</div>
 	</div>
 	<div class="btn-group" id="gridfore" data-toggle="buttons-radio">
-		<a class="btn btn-small gridButton gridCornerButton" id="1" href="#"><i class="icon-nil"></i></a>
-		<a class="btn btn-small gridButton" id="2" href="#"><i class="icon-nil"></i></a>
-		<a class="btn btn-small gridButton" id="3" href="#"><i class="icon-nil"></i></a>
+		<a class="btn btn-small gridButton gridCornerButton" id="1" title="Easy, Bad" href="#"><i class="icon-nil"></i></a>
+		<a class="btn btn-small gridButton" id="2" title="Moderate, Bad" href="#"><i class="icon-nil"></i></a>
+		<a class="btn btn-small gridButton" id="3" title="Hard, Bad" href="#"><i class="icon-nil"></i></a>
 		<br>
-		<a class="btn btn-small gridButton" id="4" href="#"><i class="icon-nil"></i></a>
-		<a class="btn btn-small gridButton" id="5" href="#"><i class="icon-nil"></i></a>
-		<a class="btn btn-small gridButton" id="6" href="#"><i class="icon-nil"></i></a>
+		<a class="btn btn-small gridButton" id="4" title="Easy, Okay" href="#" rel="tooltip"><i class="icon-nil"></i></a>
+		<a class="btn btn-small gridButton" id="5" title="Moderate, Okay" href="#"><i class="icon-nil"></i></a>
+		<a class="btn btn-small gridButton" id="6" title="Hard, Okay" href="#"><i class="icon-nil"></i></a>
 		<br>
-		<a class="btn btn-small gridButton" id="7" href="#"><i class="icon-nil"></i></a>
-		<a class="btn btn-small gridButton" id="8" href="#"><i class="icon-nil"></i></a>
-		<a class="btn btn-small gridButton gridCornerButton" id="9" href="#"><i class="icon-nil"></i></a>
+		<a class="btn btn-small gridButton" id="7" title="Easy, Good" href="#"><i class="icon-nil"></i></a>
+		<a class="btn btn-small gridButton" id="8" title="Moderate, Good" href="#"><i class="icon-nil"></i></a>
+		<a class="btn btn-small gridButton gridCornerButton" id="9" title="Hard, Good" href="#"><i class="icon-nil"></i></a>
 	</div>'
 
 rhinoGridTemp =
@@ -75,7 +75,9 @@ jQuery ->
 			$(this).popover('toggle')
 		else
 			$(this).popover('toggle')
+			$(".gridButton").tooltip({ placement : 'top', delay: { show: 400, hide: 0 } })
 			activate($('#hidGrid').val())
+	
 
 jQuery ->
 	$("#run-create-btn").click ->

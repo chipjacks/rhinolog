@@ -47,7 +47,7 @@ Runodo::Application.configure do
     :port => 587,
     :domain => "gmail.com",
     :authentication => :login,
-    :user_name => "chipjacks@gmail.com",
-    :password => "p00p-sc00p",
+    :user_name => "rhinolognet@gmail.com",
+    :password => "rhinolognet",
   }
 end
