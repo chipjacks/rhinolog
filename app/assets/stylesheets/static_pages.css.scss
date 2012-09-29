@@ -9,15 +9,17 @@ $rhinoTungsten: #333333;
 
 #subtitle {
 	color: $rhinoTungsten;
+	margin-left: 15px;
 }
 
 #signupbtn {
 	float: right;
-	display: inline;
+	display: inline-block;
 	font-weight: bold;
 	font-size: 25px;
 	padding-bottom: 0px;
 	padding-top: 0px;
+	max-width: 876px;
 }
 
 .hero-unit {
