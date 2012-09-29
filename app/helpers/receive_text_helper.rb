@@ -17,6 +17,7 @@ module ReceiveTextHelper
 
     errors = Array.new
     run_data = Hash.new
+    Chronic.time_class = Time.zone
 
     tokens.each do |tok|
       tok.strip!
