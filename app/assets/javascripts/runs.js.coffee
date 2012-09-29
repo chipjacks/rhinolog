@@ -84,6 +84,10 @@ jQuery ->
 		if $('#run_notes').length
 			$('#hidnotefield').val($('#run_notes').val())
 
+jQuery ->
+	$(".hint_tooltip").tooltip({ trigger: 'focus', placement : 'top' })
+	
+
 # Run notes tooltips
 
 jQuery ->

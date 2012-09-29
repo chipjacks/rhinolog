@@ -74,7 +74,12 @@ class Run < ActiveRecord::Base
   end
 
   def save_pace_text
-  	self.pace_in_secs = ChronicDuration.parse(@pace_text) if @pace_text.present?
+  	if @pace_text.present?
+      self.pace_in_secs = ChronicDuration.parse(@pace_text)
+      if self.pace_in_secs < 220 #user meant minutes, not seconds
+        self.pace_in_secs *= 60
+      end
+    end
   end
 
   def check_pace_text
@@ -88,7 +93,12 @@ class Run < ActiveRecord::Base
   end
 
   def save_time_text
-    self.time_in_secs = ChronicDuration.parse(@time_text) if @time_text.present?
+    if @time_text.present?
+      if !@time_text.include?('h') && !@time_text.include?('m')
+        @time_text += ':00' unless @time_text.match(/.+:.+:.+/)
+      end
+      self.time_in_secs = ChronicDuration.parse(@time_text)
+    end
   end
 
   def check_time_text
@@ -103,7 +113,7 @@ class Run < ActiveRecord::Base
     if distance.present? && time_in_secs.present?
       self.pace_in_secs = time_in_secs / distance
     elsif time_in_secs.present? && pace_in_secs.present?
-      self.distance = time_in_secs / pace_in_secs
+      self.distance = time_in_secs.to_f / pace_in_secs.to_f
     elsif distance.present? && pace_in_secs.present?
       self.time_in_secs = pace_in_secs * distance
     end

@@ -20,11 +20,13 @@
     <%= f.text_field :distance, class: 'input-mini vert-adjust', 
     					placeholder: 'Distance' %>
 
-    <%= f.text_field :time_text, class: 'input-mini vert-adjust', 
-    					placeholder: 'Time' %>
+    <%= f.text_field :time_text, class: 'input-mini vert-adjust hint_tooltip', 
+    					placeholder: 'Time', rel:"tooltip", 
+                        title:"e.g. '1h 5m'" %>
 
-    <%= f.text_field :pace_text, class: 'input-mini vert-adjust', 
-    					placeholder: 'Pace' %>
+    <%= f.text_field :pace_text, class: 'input-mini vert-adjust hint_tooltip', 
+    					placeholder: 'Pace', rel:"tooltip", 
+                        title:"e.g. '7m 30s'" %>
 
     <p class="btn notesfield" rel="popover"><i class="icon-edit"></i> </p>
 
