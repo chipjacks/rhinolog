@@ -56,6 +56,7 @@ class User < ActiveRecord::Base
 
 	before_validation :save_phone_text
   validate :check_phone
+  validates :phone, :uniqueness => true
 
   def phone_text
   	if @ohone_text
