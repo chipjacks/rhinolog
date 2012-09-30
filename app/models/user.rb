@@ -76,6 +76,9 @@ class User < ActiveRecord::Base
   	if !self.phone_text.blank? && self.phone.to_s.length != 10
   		self.errors.add(:phone_text, "Please enter a 10 digit phone number")
   	end
+    if self.phone == 0
+      self.phone = nil
+    end
   end
 
 end
