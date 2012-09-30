@@ -14,7 +14,7 @@ class ReceiveTextController < ApplicationController
 
 	    if newrun.valid?
 	    	newrun.save!
-		    @response = "Logged succesfully. Date: #{newrun.date.strftime("%-m/%d")}, distance: #{sprintf("%g", newrun.distance)}, time: #{newrun.time_text}, pace: #{newrun.pace_text}"
+		    @response = "Logged succesfully - date: #{newrun.date.strftime("%-m/%d")}, distance: #{sprintf("%g", newrun.distance)}, time: #{ChronicDuration.output(newrun.time_in_secs, :format => :short)}, pace: #{ChronicDuration.output(newrun.pace_in_secs, :format => :short)}"
 		  else
 		  	@response = "Unable to log run. "
 		  	if run_data[:errors].empty?
