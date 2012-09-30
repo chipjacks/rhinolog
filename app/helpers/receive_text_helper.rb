@@ -21,39 +21,39 @@ module ReceiveTextHelper
 
     tokens.each do |tok|
       tok.strip!
-      if tok.upcase.include?("DATE")
+      if tok.gsub!(/date\S*/i, '')
         if date = Chronic.parse(tok, context: :past).to_date
           run_data[:date_text] = date.to_s
         else
           errors.push("date")
         end
-      elsif tok.upcase.include?("TIME")
+      elsif tok.gsub!(/time\S*/i, '')
         if ChronicDuration.parse(tok)
-          run_data[:time_text] = tok
+          run_data[:time_text] = tok.strip
         else
           errors.push("time")
         end
-      elsif tok.upcase.include?("DIST")
+      elsif tok.gsub!(/dist\S*/i, '')
         if dist = tok.delete("^0-9.")
           run_data[:distance] = dist
         else
           errors.push("distance")
         end
-      elsif tok.upcase.include?("PACE")
+      elsif tok.gsub!(/pace\S*/i, '')
         if ChronicDuration.parse(tok)
-          run_data[:pace_text] = tok
+          run_data[:pace_text] = tok.strip
         else
           errors.push("pace")
         end
-      elsif tok.upcase.include?("FEEL")
-        if feel = tok.match(/(good|okay|bad)/i)[0]
+      elsif tok.gsub!(/feel\S*/i, '')
+        if feel = tok.match(/(good|ok|bad)/i)[0]
           run_data[:feel] = 1 if feel == "good"
-          run_data[:feel] = 2 if feel == "okay"
+          run_data[:feel] = 2 if feel == "ok"
           run_data[:feel] = 3 if feel == "bad"
         else
           errors.push("feel")
         end
-      elsif tok.upcase.include?("EFF")
+      elsif tok.gsub!(/eff\S*/i, '')
         if effort = tok.match(/(easy|med|mod|hard)/i)[0]
           run_data[:effort] = 1 if effort == "easy"
           run_data[:effort] = 2 if effort == "med" || effort == "mod"
@@ -61,8 +61,8 @@ module ReceiveTextHelper
         else
           errors.push("effort")
         end
-      elsif tok.upcase.include?("NOTE")
-        run_data[:notes] = tok.gsub(/(note)(s:|s|:| )/i, '').strip
+      elsif tok.gsub!(/note\S*/i, '')
+        run_data[:notes] = tok.strip
       end
     end
 
