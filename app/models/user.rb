@@ -56,7 +56,7 @@ class User < ActiveRecord::Base
 
 	before_validation :save_phone_text
   validate :check_phone
-  validates :phone, :uniqueness => true
+  validates_uniqueness_of :phone, allow_nil: true, :message => "There is already an account with that phone number."
 
   def phone_text
   	if @ohone_text

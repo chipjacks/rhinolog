@@ -18,7 +18,7 @@ class ReceiveTextController < ApplicationController
 		  else
 		  	@response = "Unable to log run. "
 		  	if run_data[:errors].empty?
-		  		@response += "Not enough data: need data for two of distance, time, and pace."
+		  		@response += "Not enough data: need data for two of distance, time, and pace. Example: 'date 9/25, distance 12, pace 7m30s, feel good, effort easy, notes drills, strides'"
 		  	else
 		  		@response += "Unable to parse "
 		  		@response += run_data[:errors].join(", ")
