@@ -11,7 +11,7 @@
 
       <div class="form-inputs">
         <%= f.input :email, :required => true, :autofocus => true %>
-        <%= f.input :phone_text, label: 'Phone', as: :tel, 
+        <%= f.input :phone_text, label: 'Phone', as: :tel, placeholder: '555-555-5555',
                 hint: "Required for SMS logging" %>
         <%= f.input :password, :required => true %>
         <%= f.input :password_confirmation, :required => true %>
