@@ -1,36 +1,36 @@
-<% if run_feed.date %>
-  <tr>
-    <td class="feel <%= color(run_feed.feel)%>" rel="tooltip" title="Feel: <%= feel_title(run_feed.feel)%>" ></td>
-    <td>
-      <%= run_feed.date.strftime("%a") %>
-      <%= run_feed.date.strftime("%-m/%d") %>
-    </td>
-    <td>
-      <%= sprintf("%g", run_feed.distance) %>
-    </td>
-    <td>
-      <%= run_feed.time_text %>
-    </td>
-    <td>
-      <%= run_feed.pace_text %>
-    </td>
-    <td>
-      <% if run_feed.notes %>
-        <% if run_feed.notes.length > 80 %>
-          <p class="notes-disp" rel="popover" 
-            title='<%= run_feed.notes.html_safe %>'>
-            <%= shorten(run_feed.notes) %>
-          </p>
-        <% else %>
-          <p class="notes-disp"> <%= run_feed.notes %> </p>
-        <% end %>
-      <% end %>
-    </td>
-    <td>
-      <%= link_to '', run_feed, method: :delete, 
-        class: 'icon-remove deleteicon pull-right', rel: 'tooltip', 
-          title: 'delete'%>
-    </td>
-    <td class="effort <%= color(run_feed.effort) %>" rel="tooltip" title="Effort: <%= effort_title(run_feed.effort) %>"></td>
-  </tr>
-<% end %>
+<tr href="#runModal" data-toggle="modal" data-date="<%=run_feed.date%>" 
+		data-id="<%=run_feed.id %>">
+	<td class="feel <%= color(run_feed.feel)%>" rel="tooltip" 
+			title="Feel: <%= feel_title(run_feed.feel)%>" ></td>
+	<td>
+		<%= run_feed.date.strftime("%a") %>
+	</td>
+	<td>
+		<%= sprintf("%g", run_feed.distance) %>
+	</td>
+	<td>
+		<%= run_feed.time_text %>
+	</td>
+	<td>
+		<%= run_feed.pace_text %>
+	</td>
+	<td>
+		<% if run_feed.notes %>
+			<% if run_feed.notes.length > 80 %>
+				<p class="notes-disp" rel="popover" 
+					title='<%= run_feed.notes.html_safe %>'>
+					<%= shorten(run_feed.notes) %>
+				</p>
+			<% else %>
+				<p class="notes-disp"> <%= run_feed.notes %> </p>
+			<% end %>
+		<% end %>
+	</td>
+	<td>
+		<%= link_to '', run_feed, method: :delete, 
+			class: 'icon-remove deleteicon pull-right', rel: 'tooltip', 
+				title: 'delete'%>
+	</td>
+	<td class="effort <%= color(run_feed.effort) %>" rel="tooltip" 
+			title="Effort: <%= effort_title(run_feed.effort) %>"></td>
+</tr>

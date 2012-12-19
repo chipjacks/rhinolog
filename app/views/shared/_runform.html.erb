@@ -1,0 +1,64 @@
+<a href="#myModal" role="button" class="btn" data-toggle="modal">Launch demo modal</a>
+ 
+<!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	<h3 id="myModalLabel">Modal header</h3>
+  </div>
+  <div class="modal-body">
+
+		<%= form_for(@run, :html => { :class => "form_inline" }, :validate => true) do |f| %>
+		  <%= render 'shared/error_messages', object: f.object %>
+
+			<div class="runform_block lead">
+				Distance
+				<br>
+				<%= f.text_field :distance, class: 'runform_input'%>
+			</div>
+
+			<div class="runform_block lead">
+				Time
+				<br>
+				<%= f.text_field :time_text, class: 'runform_input' %>
+			</div>
+			
+			<div class="runform_block lead">
+				Pace
+				<br>
+				<%= f.text_field :pace_text, class: 'runform_input' %>
+			</div>
+
+			<div class="runform_block lead">
+				Notes
+				<br>
+				<%= f.text_area :notes, id: 'run_notes_field' %>
+			</div>
+
+			<div class="runform_block lead">
+				Feel
+				<br>
+				<div class="btn-group btn-group-vertical" data-toggle='buttons-radio'>
+					<button type="button" class="btn btn-red">Bad</button>
+					<button type="button" class="btn btn-yellow">Okay</button>
+					<button type="button" class="btn btn-green">Good</button>
+				</div>
+			</div>
+
+			<div class="runform_block lead">
+				Effort
+				<br>
+				<div class="btn-group btn-group-vertical" data-toggle='buttons-radio'>
+					<button type="button" class="btn btn-red">Hard</button>
+					<button type="button" class="btn btn-yellow">Medium</button>
+					<button type="button" class="btn btn-green">Easy	</button>
+				</div>
+			</div>
+
+		<% end %>
+  </div>
+  <div class="modal-footer">
+	<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+	<button class="btn btn-primary">Save</button>
+  </div>
+</div>

@@ -8,6 +8,8 @@ Runodo::Application.routes.draw do
 
   match '/month', to: 'runs#index'
 
+  match '/summary', to: 'runs#summary'
+
   root to: 'static_pages#home'
 
   match '/sms', to: 'receive_text#index'

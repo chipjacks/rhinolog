@@ -11,6 +11,15 @@ class RunsController < ApplicationController
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end
 
+  def summary
+    @run = current_user.runs.build(params[:run])
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
+    @runs = current_user.runs.all(
+            :conditions => 
+            {:date => @date.weeks_ago(7).beginning_of_week..@date.end_of_week})
+    @runs_by_week = @runs.group_by{|r| r.date.beginning_of_week}
+  end
+
 	def create
 		@run = current_user.runs.build(params[:run])
     if @run.save

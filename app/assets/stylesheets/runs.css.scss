@@ -9,6 +9,99 @@ $rhinoTungsten: #333333;
   padding-left: 14px;
 }
 
+/* Run form */
+
+#new_run {
+  margin-bottom: 0px;
+}
+
+.runform_block > .runform_input {
+  height: 80px;
+  width: 150px;
+  font-size: 60px;
+  margin: 0px;
+  margin-bottom: 20px;
+}
+
+#run_notes_field {
+  height: 80px;
+  width: 237px;
+  resize: none;
+  vertical-align: baseline;
+}
+
+.runform_block > .btn-group {
+  width: 120px;
+}
+
+.runform_block {
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 0px;
+}
+
+.btn-group > .btn-red {
+  background-color: hsl(0, 100%, 43%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff6b6b", endColorstr="#db0000");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#ff6b6b), to(#db0000));
+  background-image: -moz-linear-gradient(top, #ff6b6b, #db0000);
+  background-image: -ms-linear-gradient(top, #ff6b6b, #db0000);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ff6b6b), color-stop(100%, #db0000));
+  background-image: -webkit-linear-gradient(top, #ff6b6b, #db0000);
+  background-image: -o-linear-gradient(top, #ff6b6b, #db0000);
+  background-image: linear-gradient(#ff6b6b, #db0000);
+  border-color: #db0000 #db0000 hsl(0, 100%, 36%);
+  color: #333;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.46);
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn-group > .btn-yellow {
+  background-color: hsl(59, 100%, 47%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fffd93", endColorstr="#efeb00");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#fffd93), to(#efeb00));
+  background-image: -moz-linear-gradient(top, #fffd93, #efeb00);
+  background-image: -ms-linear-gradient(top, #fffd93, #efeb00);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fffd93), color-stop(100%, #efeb00));
+  background-image: -webkit-linear-gradient(top, #fffd93, #efeb00);
+  background-image: -o-linear-gradient(top, #fffd93, #efeb00);
+  background-image: linear-gradient(#fffd93, #efeb00);
+  border-color: #efeb00 #efeb00 hsl(59, 100%, 39%);
+  color: #333;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.52);
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn-group > .btn-green {
+  background-color: hsl(102, 100%, 47%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#a5ff7f", endColorstr="#47ef00");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#a5ff7f), to(#47ef00));
+  background-image: -moz-linear-gradient(top, #a5ff7f, #47ef00);
+  background-image: -ms-linear-gradient(top, #a5ff7f, #47ef00);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #a5ff7f), color-stop(100%, #47ef00));
+  background-image: -webkit-linear-gradient(top, #a5ff7f, #47ef00);
+  background-image: -o-linear-gradient(top, #a5ff7f, #47ef00);
+  background-image: linear-gradient(#a5ff7f, #47ef00);
+  border-color: #47ef00 #47ef00 hsl(102, 100%, 40%);
+  color: #333 !important;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.46);
+  -webkit-font-smoothing: antialiased;
+}
+
+.active {
+  color: #333;
+  text-decoration: none;
+  background-color: #E6E6E6;
+  background-position: 0 -15px;
+  -webkit-transition: background-position 0.1s linear;
+  -moz-transition: background-position 0.1s linear;
+  -o-transition: background-position 0.1s linear;
+  transition: background-position 0.1s linear;
+}
+
 /* Run week table */
 
 .table .no-side-pad {
@@ -42,15 +135,15 @@ $rhinoTungsten: #333333;
 }
 
 .red {
-  background-color: $gridRed;
+  background-color: $gridRed !important;
 }
 
 .yellow {
-  background-color: $gridYellow;
+  background-color: $gridYellow !important;
 }
 
 .green {
-  background-color: $gridGreen;
+  background-color: $gridGreen !important;
 }
 
 .no-bot-marg {

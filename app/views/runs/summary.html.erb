@@ -1,0 +1,42 @@
+<%= render partial: 'shared/runform' %>
+
+<% @runs_by_week.each do |key, value| %>
+	<div>
+		<h2>
+			<%= key.strftime("%m/%d") %>
+			-
+			<%= key.end_of_week.strftime("%m/%d") %>
+		</h2>
+	</div>
+	<div class="row lead">
+		<div class="span2">
+				<%= distance = value.reduce(0) {|sum, r| sum + r.distance} %>
+				miles
+		</div>
+		<% time = value.reduce(0) {|sum, r| sum + r.time_in_secs} %>
+		<div class="span2">
+			<%= ChronicDuration.output((time/distance).round, :format => :short, units: 2) %>
+			pace
+		</div>
+		<div class="span2">
+			Felt
+			<% f = ['', 'bad', 'okay', 'good'] %>
+			<%= f[value.reduce(0) {|sum, r| sum + r.feel}/value.count] %>
+		</div>
+		<div class="span2">
+			<% effort = value.reduce(0) {|sum, r| sum + r.effort}/value.count %>
+			<% if effort < 1.25 %>
+				Easy
+			<% elsif effort < 1.75 %>
+				Easy-Moderate
+			<% elsif effort < 2.25 %>
+				Moderate
+			<% elsif effort < 2.75 %>
+				Moderate-Hard
+			<% else %>
+				Hard
+			<% end %>
+			effort
+		</div>
+	</div>
+<% end %>
