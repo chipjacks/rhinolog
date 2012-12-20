@@ -1,12 +1,12 @@
 <% date = params[:date] ? Date.parse(params[:date]).beginning_of_week 
 		: Date.today.beginning_of_week %>
-		
+
 <tbody>
 	<% (1..7).each do |i| %>
 		<% todays_runs = @runs.select { |r| r.date == date } %>
 		<%= render :partial => "shared/run_feed", :collection => todays_runs %>
 		<% if todays_runs.empty? %>
-			<tr href="#runModal" data-toggle="modal" data-date="<%=date%>" data-id="">
+			<tr class="newrun" data-date="<%=date%>" data-id="">
 				<td></td>
 				<td>
 					<%= date.strftime("%a") %>

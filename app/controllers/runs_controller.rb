@@ -38,6 +38,7 @@ class RunsController < ApplicationController
 
   def show
   	@run = current_user.runs.find(params[:id])
+    respond_with @run
   end
 
   def destroy

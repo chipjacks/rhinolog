@@ -11,13 +11,31 @@ $rhinoTungsten: #333333;
 
 /* Run form */
 
+.modal-body {
+  text-align: center;
+}
+
 #new_run {
   margin-bottom: 0px;
 }
 
+#pace_mins, #time_mins {
+  width: 70px;
+}
+
+#pace_secs, #time_secs {
+  width: 70px;
+}
+
+.big_colon {
+  font-size: 60px;
+  margin-right: -8px;
+  margin-left: -8px;
+}
+
 .runform_block > .runform_input {
   height: 80px;
-  width: 150px;
+  width: 120px;
   font-size: 60px;
   margin: 0px;
   margin-bottom: 20px;
@@ -38,6 +56,12 @@ $rhinoTungsten: #333333;
   display: inline-block;
   vertical-align: top;
   margin-bottom: 0px;
+  text-align: center;
+}
+
+.runform_block.center {
+  padding-right: 20px;
+  padding-left: 20px;
 }
 
 .btn-group > .btn-red {

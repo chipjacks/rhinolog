@@ -16,8 +16,8 @@
 					<%= f.text_field :distance, class: 'runform_input'%>
 				</div>
 
-				<div class="runform_block center lead">
-					Time (min)
+				<div class="runform_block lead">
+					Time
 					<br>
 					<%= f.text_field :time_text, class: 'runform_input' %>
 				</div>
@@ -25,10 +25,7 @@
 				<div class="runform_block lead">
 					Pace
 					<br>
-					<input class="runform_input" name="time_mins" id="pace_mins" type="text">
-					<span class="big_colon">:</span>
-					<input class="runform_input" name="time_secs" id="pace_secs" type="text">
-					<%= f.hidden_field :pace_text, value: '' %>
+					<%= f.text_field :pace_text, class: 'runform_input' %>
 				</div>
 
 				<div class="runform_block lead">
