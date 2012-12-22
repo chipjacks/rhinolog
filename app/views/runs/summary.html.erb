@@ -42,7 +42,7 @@
 						miles
 				</div>
 				<div class="span3 not-too-wide">
-					<% if pace %>
+					<% if pace && pace !=0 %>
 						<%= ChronicDuration.output(pace, :format => :chrono, units: 2) %>
 						pace
 					<% end %>
