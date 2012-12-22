@@ -18,7 +18,7 @@ module ApplicationHelper
   end
 
   def shorten(string)
-  	maxlength = 80
+  	maxlength = 57
   	if string.length > maxlength
   		"#{string.slice(0, maxlength)}..."
   	else

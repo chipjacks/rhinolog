@@ -9,6 +9,28 @@ $rhinoTungsten: #333333;
   padding-left: 14px;
 }
 
+/* Run summary */
+.not-too-wide {
+  max-width: 150px;
+}
+
+.week_summary {
+  display: block;
+  color: inherit;
+}
+
+.week_summary:hover {
+  background-color: whitesmoke;
+  cursor: pointer;
+  cursor: hand;
+  text-decoration: none;
+  color: inherit;
+}
+
+.shiftup {
+  margin-bottom: 10px;
+}
+
 /* Run form */
 
 .modal-body {
@@ -19,8 +41,12 @@ $rhinoTungsten: #333333;
   margin-bottom: 0px;
 }
 
-#pace_mins, #time_mins {
+#pace_mins {
   width: 70px;
+}
+
+#pace_mins {
+  text-align: right;
 }
 
 #pace_secs, #time_secs {
@@ -64,7 +90,7 @@ $rhinoTungsten: #333333;
   padding-left: 20px;
 }
 
-.btn-group > .btn-red {
+.btn-group > .btn-red.active {
   background-color: hsl(0, 100%, 43%) !important;
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff6b6b", endColorstr="#db0000");
@@ -81,7 +107,7 @@ $rhinoTungsten: #333333;
   -webkit-font-smoothing: antialiased;
 }
 
-.btn-group > .btn-yellow {
+.btn-group > .btn-yellow.active {
   background-color: hsl(59, 100%, 47%) !important;
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fffd93", endColorstr="#efeb00");
@@ -98,7 +124,7 @@ $rhinoTungsten: #333333;
   -webkit-font-smoothing: antialiased;
 }
 
-.btn-group > .btn-green {
+.btn-group > .btn-green.active {
   background-color: hsl(102, 100%, 47%) !important;
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#a5ff7f", endColorstr="#47ef00");
@@ -113,17 +139,6 @@ $rhinoTungsten: #333333;
   color: #333 !important;
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.46);
   -webkit-font-smoothing: antialiased;
-}
-
-.active {
-  color: #333;
-  text-decoration: none;
-  background-color: #E6E6E6;
-  background-position: 0 -15px;
-  -webkit-transition: background-position 0.1s linear;
-  -moz-transition: background-position 0.1s linear;
-  -o-transition: background-position 0.1s linear;
-  transition: background-position 0.1s linear;
 }
 
 /* Run week table */
@@ -144,9 +159,26 @@ $rhinoTungsten: #333333;
   width: 95%; 
 }
 
-#deleteicon {
+.runicon {
   display: inline;
+  font-size: 16px;
+  color: black;
+  margin-right: 3px;
+  margin-left: 3px;
+  margin-top: 3px;
+  line-height: 20px;
 }
+
+.runicon:hover {
+  font-size: 20px;
+  margin-left: 2px;
+  margin-right: 1px;
+  text-decoration: none;
+  cursor: hand;
+  cursor: pointer;
+  color: black;
+}
+
 
 .table .leftend {
   padding-left: 0px;

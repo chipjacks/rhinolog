@@ -36,6 +36,8 @@ group :assets do
   gem 'bootstrap-sass', git: 'https://github.com/chipjacks/bootstrap-sass'
 
   gem 'jquery-ui-rails'
+
+  gem "font-awesome-sass-rails", "~> 2.0.0.0"
 end
 
 gem 'jquery-rails'

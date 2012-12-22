@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120930210318) do
+ActiveRecord::Schema.define(:version => 20121220050822) do
 
   create_table "runs", :force => true do |t|
     t.integer  "user_id"
@@ -19,11 +19,11 @@ ActiveRecord::Schema.define(:version => 20120930210318) do
     t.integer  "time_in_secs"
     t.decimal  "distance",     :precision => 5, :scale => 2
     t.integer  "pace_in_secs"
-    t.integer  "feel",                                       :default => 2
+    t.integer  "feel",                                       :default => 0
     t.datetime "created_at",                                                :null => false
     t.datetime "updated_at",                                                :null => false
     t.text     "notes"
-    t.integer  "effort",                                     :default => 2
+    t.integer  "effort",                                     :default => 0
   end
 
   add_index "runs", ["user_id", "date"], :name => "index_runs_on_user_id_and_date"

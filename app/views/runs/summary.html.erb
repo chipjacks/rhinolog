@@ -1,42 +1,105 @@
-<%= render partial: 'shared/runform' %>
+<div class="row">
+	<div class="pull-right">
+	<input type="text" class="goto_date input-small" placeholder="Jump to">
+	<a class="btn shiftup" id="goto_date" href="/summary">Go</a>
+</div>
+</div>
 
-<% @runs_by_week.each do |key, value| %>
-	<div>
-		<h2>
-			<%= key.strftime("%m/%d") %>
-			-
-			<%= key.end_of_week.strftime("%m/%d") %>
-		</h2>
-	</div>
-	<div class="row lead">
-		<div class="span2">
-				<%= distance = value.reduce(0) {|sum, r| sum + r.distance} %>
-				miles
-		</div>
-		<% time = value.reduce(0) {|sum, r| sum + r.time_in_secs} %>
-		<div class="span2">
-			<%= ChronicDuration.output((time/distance).round, :format => :short, units: 2) %>
-			pace
-		</div>
-		<div class="span2">
-			Felt
-			<% f = ['', 'bad', 'okay', 'good'] %>
-			<%= f[value.reduce(0) {|sum, r| sum + r.feel}/value.count] %>
-		</div>
-		<div class="span2">
-			<% effort = value.reduce(0) {|sum, r| sum + r.effort}/value.count %>
-			<% if effort < 1.25 %>
-				Easy
-			<% elsif effort < 1.75 %>
-				Easy-Moderate
-			<% elsif effort < 2.25 %>
-				Moderate
-			<% elsif effort < 2.75 %>
-				Moderate-Hard
-			<% else %>
-				Hard
-			<% end %>
-			effort
-		</div>
-	</div>
+<% end_date = @start_date.weeks_ago(8) %>
+<% @runs_by_week.reverse_each do |key, value| %>
+	<% while key < @start_date && @start_date > end_date do %>
+		<a class="week_summary" href="/?date=<%= @start_date %>">
+			<div>
+				<h2>
+					<%= @start_date.strftime("%m/%d") %>
+					-
+					<%= @start_date.end_of_week.strftime("%m/%d") %>
+				</h2>
+			</div>
+			<div class="row lead">
+				<div class="span3 not-too-wide">
+						0 miles
+				</div>
+			</div>
+		</a>
+		<% @start_date = @start_date.weeks_ago(1) %>
+	<% end %>
+	<% distance = sum_distance(value) %>
+	<% pace = avg_pace(value) %>
+	<% feel = avg_feel(value) %>
+	<% effort = avg_effort(value) %>
+		<a class="week_summary" href="/?date=<%= key %>">
+			<div>
+				<h2>
+					<%= key.strftime("%m/%d") %>
+					-
+					<%= key.end_of_week.strftime("%m/%d") %>
+				</h2>
+			</div>
+			<div class="row lead">
+				<div class="span3 not-too-wide">
+						<%= distance %>
+						miles
+				</div>
+				<div class="span3 not-too-wide">
+					<% if pace %>
+						<%= ChronicDuration.output(pace, :format => :chrono, units: 2) %>
+						pace
+					<% end %>
+				</div>
+				<div class="span3 not-too-wide">
+					<% if feel %>
+						Felt
+						<% if feel < 1.25 %>
+							good
+						<% elsif feel < 1.75 %>
+							okay-good
+						<% elsif feel < 2.25 %>
+							okay
+						<% elsif feel < 2.75 %>
+							bad-okay
+						<% else %>
+							bad
+						<% end %>
+					<% end %>
+				</div>
+				<div class="span3">
+					<% if effort %>
+						<% if effort < 1.25 %>
+							Easy
+						<% elsif effort < 1.75 %>
+							Easy-moderate
+						<% elsif effort < 2.25 %>
+							Moderate
+						<% elsif effort < 2.75 %>
+							Moderate-hard
+						<% else %>
+							Hard
+						<% end %>
+						effort
+					<% end %>
+				</div>
+			</div>
+		</a>
+		<% @start_date = @start_date.weeks_ago(1) %>
+<% end %>
+
+<% if @runs_by_week.empty? %>
+	<% (1..7).each do |i| %>
+		<a class="week_summary" href="/?date=<%= @start_date %>">
+			<div>
+				<h2>
+					<%= @start_date.strftime("%m/%d") %>
+					-
+					<%= @start_date.end_of_week.strftime("%m/%d") %>
+				</h2>
+			</div>
+			<div class="row lead">
+				<div class="span3 not-too-wide">
+						0 miles
+				</div>
+			</div>
+		</a>
+		<% @start_date = @start_date.weeks_ago(1) %>
+	<% end %>
 <% end %>

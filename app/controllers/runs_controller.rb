@@ -13,11 +13,17 @@ class RunsController < ApplicationController
 
   def summary
     @run = current_user.runs.build(params[:run])
-    @date = params[:date] ? Date.parse(params[:date]) : Date.today
+    begin
+      @date = params[:date] ? Date.parse(params[:date]) : Date.today
+    rescue
+      @date = Date.today
+    end
     @runs = current_user.runs.all(
             :conditions => 
             {:date => @date.weeks_ago(7).beginning_of_week..@date.end_of_week})
     @runs_by_week = @runs.group_by{|r| r.date.beginning_of_week}
+    @start_date = @date.beginning_of_week
+
   end
 
 	def create
@@ -32,8 +38,9 @@ class RunsController < ApplicationController
   end
 
   def update
+    @run = current_user.runs.find(params[:id])
 	  @run.update_attributes(params[:run])
-	  respond_with @run
+	  redirect_to root_path({ date: @run.date })
   end
 
   def show

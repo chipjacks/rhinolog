@@ -6,7 +6,7 @@
 		<%= run_feed.date.strftime("%a") %>
 	</td>
 	<td>
-		<%= sprintf("%g", run_feed.distance) %>
+		<%= sprintf("%g", run_feed.distance) if run_feed.distance %>
 	</td>
 	<td>
 		<%= run_feed.time_text %>
@@ -28,8 +28,10 @@
 	</td>
 	<td>
 		<%= link_to '', run_feed, method: :delete, 
-			class: 'icon-remove deleteicon pull-right', rel: 'tooltip', 
+			class: 'icon-remove runicon pull-right', rel: 'tooltip', 
 				title: 'delete'%>
+		<span class='icon-plus runicon pull-right' rel='tooltip' title='new run'
+				data-date="<%= run_feed.date %>"></span>
 	</td>
 	<td class="effort <%= color(run_feed.effort) %>" rel="tooltip" 
 			title="Effort: <%= effort_title(run_feed.effort) %>"></td>
