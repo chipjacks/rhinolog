@@ -28,60 +28,60 @@
 	<% pace = avg_pace(value) %>
 	<% feel = avg_feel(value) %>
 	<% effort = avg_effort(value) %>
-		<a class="week_summary" href="/?date=<%= key %>">
-			<div>
-				<h2>
-					<%= key.strftime("%m/%d") %>
-					-
-					<%= key.end_of_week.strftime("%m/%d") %>
-				</h2>
+	<a class="week_summary" href="/?date=<%= key %>">
+		<div>
+			<h2>
+				<%= key.strftime("%m/%d") %>
+				-
+				<%= key.end_of_week.strftime("%m/%d") %>
+			</h2>
+		</div>
+		<div class="row lead">
+			<div class="span3 not-too-wide">
+					<%= distance %>
+					miles
 			</div>
-			<div class="row lead">
-				<div class="span3 not-too-wide">
-						<%= distance %>
-						miles
-				</div>
-				<div class="span3 not-too-wide">
-					<% if pace && pace !=0 %>
-						<%= ChronicDuration.output(pace, :format => :chrono, units: 2) %>
-						pace
-					<% end %>
-				</div>
-				<div class="span3 not-too-wide">
-					<% if feel %>
-						Felt
-						<% if feel < 1.25 %>
-							good
-						<% elsif feel < 1.75 %>
-							okay-good
-						<% elsif feel < 2.25 %>
-							okay
-						<% elsif feel < 2.75 %>
-							bad-okay
-						<% else %>
-							bad
-						<% end %>
-					<% end %>
-				</div>
-				<div class="span3">
-					<% if effort %>
-						<% if effort < 1.25 %>
-							Easy
-						<% elsif effort < 1.75 %>
-							Easy-moderate
-						<% elsif effort < 2.25 %>
-							Moderate
-						<% elsif effort < 2.75 %>
-							Moderate-hard
-						<% else %>
-							Hard
-						<% end %>
-						effort
-					<% end %>
-				</div>
+			<div class="span3 not-too-wide">
+				<% if pace && pace !=0 %>
+					<%= ChronicDuration.output(pace, :format => :chrono, units: 2) %>
+					pace
+				<% end %>
 			</div>
-		</a>
-		<% @start_date = @start_date.weeks_ago(1) %>
+			<div class="span3 not-too-wide">
+				<% if feel %>
+					Felt
+					<% if feel < 1.25 %>
+						good
+					<% elsif feel < 1.75 %>
+						okay-good
+					<% elsif feel < 2.25 %>
+						okay
+					<% elsif feel < 2.75 %>
+						bad-okay
+					<% else %>
+						bad
+					<% end %>
+				<% end %>
+			</div>
+			<div class="span3">
+				<% if effort %>
+					<% if effort < 1.25 %>
+						Easy
+					<% elsif effort < 1.75 %>
+						Easy-moderate
+					<% elsif effort < 2.25 %>
+						Moderate
+					<% elsif effort < 2.75 %>
+						Moderate-hard
+					<% else %>
+						Hard
+					<% end %>
+					effort
+				<% end %>
+			</div>
+		</div>
+	</a>
+	<% @start_date = @start_date.weeks_ago(1) %>
 <% end %>
 
 <% if @runs_by_week.empty? %>
