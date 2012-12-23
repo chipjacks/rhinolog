@@ -7,44 +7,67 @@
 $rhinoYellow: #ffc40d;
 $rhinoTungsten: #333333;
 
-#subtitle {
-	color: $rhinoTungsten;
-	margin-left: 15px;
+.bottompad {
+	height: 200px;
 }
 
-#signupbtn {
-	float: right;
-	display: inline-block;
-	font-weight: bold;
-	font-size: 25px;
-	padding-bottom: 0px;
-	padding-top: 0px;
-	max-width: 876px;
+.welcome {
+	min-height: 95%;
 }
 
-.hero-unit {
-	padding-bottom: 30px;
+.toppad {
+	height: 150px;
 }
 
-#cell-image {
-	max-width: 200px;
+.miniform {
+	margin-bottom: 0px;
 }
 
-.feature-image {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
+.fixwidth {
+	width: 225px;
 }
 
-#week-view {
-	max-width: 350px;
+.minitext {
+	font-size: 12px;
 }
 
-#rhinogrid {
-	max-width: 170px;
-	margin-left: 15%;
+.bgrbtn {
+	width: 55px;
 }
 
+.centerdiv {
+	position: relative;
+	left: 25%;
+}
+
+.megadiv {
+	height: 30px;
+}
+
+.minidiv {
+	height: 10px;
+}
+
+#rem-me {
+	margin-top: 0px;
+}
+
+//Signup page
+
+.newpage {
+	height: 600px;
+	width: 100%;
+}
+
+.halfpage {
+	height: 200px;
+	width: 100%
+}
+
+.centered {
+	width: 100%;
+	text-align: center;
+}
 //Navbar
 
 #signinform { 

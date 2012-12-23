@@ -1,98 +1,51 @@
-<div class="hero-unit">
-	<div class="row">
-		<div class="span10">
-    	<%= image_tag "bigtitle.png"%>
-    </div>
-  </div>
-	<h2 id="subtitle">
-		Quick and simple run logging.
-	</h2>
-</div>
 
-<div class="container">
-	<div class="row">
-		<div class="span4 offset1">
-			<h1>
-				Features:
-			</h1>
-		</div>
-	</div>
-	<div class="row">
-		<div class="span10 offset1">
-			<hr>
-		</div>
-	</div>
-	<div class="row">
-		<div class="span4 offset1">
-			<h3 style='text-align: right'>
-				Don't like sweating all over your keyboard?
-			</h3>
-			<p class="lead" style='text-align: right'>
-				Send a text to (208)35RHINO instead
-			</p>
-		</div>
-		<div class="span4 offset1">
-			<%= image_tag "celltext.png", id: 'cell-image', class: 'feature-image'%>
-		</div>
-	</div>
-	<div class="row">
-		<div class="span10 offset1">
-			<hr>
-		</div>
-	</div>
-	<div class="row">
-		<div class="span4 offset1">
-			<%= image_tag "week_view.png", class: 'feature-image', id: 'week-view'%>
-		</div>
-		<div class="span4 offset1">
-			<h3>
-				Run hard, log easy
-			</h3>
-			<p class="lead">
-				Simple and intuitive user interface
-			</p>
-		</div>
-	</div>
-	<div class="row">
-		<div class="span10 offset1">
-			<hr>
-		</div>
-	</div>
-	<div class="row">
-		<div class="span4 offset1">
-			<h3 style='text-align: right'>
-				RhinoGrid
-			</h3>
-			<p class="lead" style='text-align: right'>
-				Easily track and visualize feel and effort data
-			</p>
-		</div>
-		<div class="span4 offset1">
-			<%= image_tag "rhinogrid.png", class: 'feature-image', id: 'rhinogrid'%>
-		</div>
-	</div>
-	<div class="row">
-		<div class="span10 offset1">
-			<hr>
-		</div>
-	</div>
-	<div class="row">
-		<div class="span9 offset1">
-			<h3 style='text-align: center'>
-				More features and refinements to come!
-			</h3>
-		</div>
-	</div>
-	<div class="row">	
-		<div class="span9 offset1">
-			<p class="lead" style='text-align: center'>
-				So give it a shot, it's 100% free!
-			</p>
-		</div>
-	</div>
-	<div class="row">	
-		<div class="span3 offset4">
-			<%= link_to "Sign Up!", new_user_registration_path, class: "btn btn-large btn-primary btn-block" %>
-		</div>
+<div class="toppad">
+	<div class="pull-right fixwidth well well-small">
+		<%= simple_form_for(resource, :as => resource_name, 
+			:url => session_path(resource_name),
+			:html => { :class => 'form-vertical miniform' }) do |f| %>
+			<div class="form-inputs">
+				<div>
+					<input id="user_email" class="string email optional" type="email" value="" size="50" name="user[email]" autofocus="autofocus" placeholder="Email">
+				</div>
+				<div>
+					<input id="user_password" type="password" size="50" name="user[password]" placeholder="Password">
+				</div>
+				<div id="signin">
+					Remember me
+					<input id="rem-me" type="checkbox" value="0" name="user[remember_me]">
+					<input class="btn btn-large btn-primary pull-right" type="submit" value="Sign in" name="commit">
+					<br>
+					<%= link_to "Forgot password?", new_password_path(resource_name), class: 'minitext' %>
+				</div>
+			</div>
+		<% end %>
 	</div>
 </div>
+<div class="row">
+	<div class="span8 offset2">
+		<h2>
+			<%= image_tag "title_black.png" %>
+			<div class="megadiv"></div>
+			Quick and simple run mileage logging
+			<br>
+			<span class="lead">
+				online or via SMS text
+			</span>
+			<div class="minidiv"></div>
+			<a class="btn try-it"> 
+				<span class="lead">
+					Try it out
+				</span>
+			</a>
+			<a class="btn btn-primary" href="/users/sign_up"> 
+				<span class="lead">
+					Sign Up
+				</span>
+			</a>
+		</h2>
+	</div>
+</div>
+<div class="bottompad"></div>
+
+<%= render partial: "shared/run_modal_demo" %>

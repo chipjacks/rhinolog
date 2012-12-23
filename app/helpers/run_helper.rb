@@ -24,7 +24,7 @@ module RunHelper
 		sum = 0
 		count = 0
 		arr.each do |r|
-			if r.time_in_secs && r.pace_in_secs
+			if r.time_in_secs && r.distance && r.pace_in_secs && r.time_in_secs != 0 && r.time_in_secs != 0
 				sum += r.pace_in_secs
 				count += 1
 			end

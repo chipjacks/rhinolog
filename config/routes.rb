@@ -6,13 +6,13 @@ Runodo::Application.routes.draw do
   
   resources :runs, only: [:create, :destroy, :show, :update, :index]
 
-  match '/month', to: 'runs#index'
-
   match '/summary', to: 'runs#summary'
 
   root to: 'static_pages#home'
 
   match '/sms', to: 'receive_text#index'
+
+  match '/signup',  to: 'static_pages#signup'
 
   get "static_pages/help"
   get "static_pages/about"

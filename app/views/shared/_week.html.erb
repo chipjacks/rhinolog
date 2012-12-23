@@ -6,7 +6,7 @@
 		<% todays_runs = @runs.select { |r| r.date == date } %>
 		<%= render :partial => "shared/run_feed", :collection => todays_runs %>
 		<% if todays_runs.empty? %>
-			<tr class="newrun" data-date="<%=date%>" data-id="">
+			<tr class="newrun <%= 'today' if date == Date.today %>" data-date="<%=date%>" data-id="">
 				<td></td>
 				<td>
 					<%= date.strftime("%a") %>

@@ -1,0 +1,72 @@
+<%= form_for(@run, :html => { :class => "form_inline", :method => :put }, :validate => true) do |f| %>
+	<div id="runModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="runModalLabel" aria-hidden="true">
+	  <div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="runModalLabel">New Run</h3>
+	  </div>
+	  <div class="modal-body">
+
+			  <%= f.hidden_field :date_text, value: '' %>
+
+				<div class="runform_block lead control-group">
+					Distance
+					<br>
+					<%= f.text_field :distance, class: 'runform_input', maxlength: '4' %>
+				</div>
+
+				<div class="runform_block center lead control-group">
+					Time (min)
+					<br>
+					<input class="runform_input" name="time_mins" id="time_mins" type="text"
+							maxlength='3'>
+					<%= f.hidden_field :time_in_secs, value: ''%>
+				</div>
+				
+				<div class="runform_block lead control-group">
+					Pace
+					<br>
+					<input class="runform_input" name="pace_mins" id="pace_mins" type="text"
+							maxlength='2'>
+					<span class="big_colon">:</span>
+					<input class="runform_input" name= "pace_secs" id="pace_secs" type="text"
+							maxlength='2'>
+					<%= f.hidden_field :pace_in_secs, value: '' %>
+				</div>
+
+				<div class="runform_block lead">
+					Notes
+					<br>
+					<%= f.text_area :notes, id: 'run_notes_field' %>
+				</div>
+
+				<div class="runform_block lead">
+					Feel
+					<br>
+					<div class="btn-group btn-group-vertical" id="feel" data-toggle='buttons-radio'>
+						<button type="button" data-feel='3' class="btn btn-red">Bad</button>
+						<button type="button" data-feel='2' class="btn btn-yellow">Okay</button>
+						<button type="button" data-feel='1' class="btn btn-green">Good</button>
+					</div>
+
+					<%= f.hidden_field :feel, id: 'run_feel' %>
+				</div>
+
+				<div class="runform_block lead">
+					Effort
+					<br>
+					<div class="btn-group btn-group-vertical" id="effort" data-toggle='buttons-radio'>
+						<button type="button" data-effort='3' class="btn btn-red">Hard</button>
+						<button type="button" data-effort='2' class="btn btn-yellow">Medium</button>
+						<button type="button" data-effort='1' class="btn btn-green">Easy	</button>
+					</div>
+
+					<%= f.hidden_field :effort, id: 'run_effort' %>
+				</div>
+
+	  </div>
+	  <div class="modal-footer">
+		<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+		<a href="/users/sign_up" class="btn btn-primary">Sign up to log it</a>
+	  </div>
+	</div>
+<% end %>

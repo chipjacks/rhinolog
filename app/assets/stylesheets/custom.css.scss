@@ -10,6 +10,24 @@ $navbarLinkColor:           $rhinoTungsten;
 @import "bootstrap-responsive";
 @import "font-awesome";
 
+/* fix modal position for 480px devices */
+@media (max-width: 480px) 
+{
+	.modal { 
+		position: fixed; 
+		top: 3%; 
+		right: 3%; 
+		left: 3%; 
+		bottom: 3%; 
+		width: auto; 
+		margin: 0; 
+	}
+	.modal-body { 
+		height: 50%; 
+	}
+}
+
+
 /* universal */
 
 html {

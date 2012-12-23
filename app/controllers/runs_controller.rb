@@ -29,7 +29,6 @@ class RunsController < ApplicationController
 	def create
 		@run = current_user.runs.build(params[:run])
     if @run.save
-      flash[:success] = "Run created!" 
       redirect_to root_path({ date: @run.date })
     else
       params[:date] = @run.date ? @run.date : Date.today

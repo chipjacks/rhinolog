@@ -3,18 +3,21 @@
     <div class="container">
 
       <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <% if signed_in? %>
       <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
+      <% end %>
 
        <!-- Be sure to leave the brand out there if you want it shown -->
       <a class="brand" href=<%= root_path %>> <%= image_tag "titlewhite.png" %></a>
 
       <!-- Everything you want hidden at 940px or less, place within here -->
+      <% if signed_in? %>
       <div class="nav-collapse">
-        <% if signed_in? && !controller.to_s.start_with?("#<Devise") %>
+        <% if !controller.to_s.start_with?("#<Devise") %>
           <ul class="nav">
             <li class= <%="active" if current_page?(root_path)%> >
               <a href="/" class="nav-view-text">WEEK</a>
@@ -25,7 +28,6 @@
           </ul>
         <% end %>
         <ul class="nav pull-right">
-        <% if signed_in? %>
           <li class="dropdown">
             <a class="dropdown-toggle nav-account-text"
             data-toggle="dropdown"
@@ -38,16 +40,6 @@
               <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
             </ul>
           </li>
-        <% else %>
-          <%= form_for resource, as: resource_name, :url => session_path(resource_name), :html => { :class => "navbar-form pull-left" } do |f| %>
-            <%= f.text_field :email, placeholder: 'Email', class: 'span2', 
-                      id: 'signinform' %>
-
-            <%= f.password_field :password, placeholder: 'Password', 
-                      class: 'span2', id: 'signinform' %>
-
-            <%= f.submit "Sign In", class: "btn" %>
-          <% end %>
         <% end %>
         </ul>
       </div>

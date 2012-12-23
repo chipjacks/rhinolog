@@ -31,6 +31,51 @@ $rhinoTungsten: #333333;
   margin-bottom: 10px;
 }
 
+.fe_box {
+  width: 360px;
+  margin-top: -30px;
+}
+
+.fe_line {
+  border-width: 4px;
+  margin-top: -7px;
+  margin-bottom: -8px;
+  border-color: #A8A8A8;
+  border-radius: 5px;
+}
+
+.fe_text {
+  font-size: 10px;
+}
+
+.e_text {
+  margin-bottom: 0px;
+}
+
+.txt_space {
+  width: 117px;
+  display: inline-block;
+}
+
+.feel-measure {
+  position: absolute;
+  z-index: 1;
+}
+
+.effort-measure {
+  position: absolute;
+  z-index: 1;
+  margin-top: 36px;
+}
+
+.microbreak{
+  height: 3px;
+}
+
+.fe_icon {
+  font-size: 24px;
+  // color: #A8A8A8;
+}
 /* Run form */
 
 .modal-body {
@@ -143,6 +188,11 @@ $rhinoTungsten: #333333;
 
 /* Run week table */
 
+.centerer {
+  height: 90%;
+  padding-top: 3%;
+}
+
 .table .no-side-pad {
   padding-left: 0px;
   padding-right: 0px;
@@ -210,56 +260,14 @@ $rhinoTungsten: #333333;
   text-align: right;
 }
 
-//Run Calendar
-
-.days {
-  width: 86%;
-  display: inline-block;
-  min-width: 495px;
+.today {
+  background-color: #ECF9FF;
 }
 
-#runs .totalscolumn ul {
-  margin-top: 30%;
-}
+//week view
 
-.totalscolumn {
-  width: 13%;
-  display: inline-block;
-}
-
-#runs .row {
-  margin-left: 0px;
-  min-width: 575px;
-}
-
-#runs .calendar {
-  border-collapse: collapse;
-  width: 100%;
-
-  td, th {
-
-    font-size: 14px;
-    padding: 6px;
-    border: 1px solid #999;
-  }
-
-  th {
-    background: whiteSmoke;
-    color: #666;
-    text-align: center;
-    width: 12.5%; //14.2857142857143%;
-  }
-
-  td {
-    background: #FFF;
-    color: #777;
-    height: 80px;
-    vertical-align: top;
-    font-size: 16px;
-  }
-
-  .notmonth, .notmonth a { color: #CCC; }
-  .today { background-color: #D7F2FF; }
+.wide {
+  height: 60px;
 }
 
 #runs #month {
@@ -273,140 +281,6 @@ $rhinoTungsten: #333333;
   }
 }
 
-#runs ul {
-  font-size: 40px;
-  padding-left: 0px;
-  text-align: center;
-  margin-left: 0px;
-  margin-top: 10%;
-}
-
-// RhinoGrid Feel/Effort Grid
-
-#gridBox {
-  width: 125px;
-  height: 103px;
-  position:absolute;
-}
-
-#redsquare {
-  width: 110px;
-  height: 88px;
-  background: $gridRed;
-  position:absolute;
-  z-index:-1;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  left: 15px;
-}
-
-#leftyellowsquare {
-  top: 26px;
-  width: 20px;
-  height: 26px;
-  background: $gridYellow;
-  position: absolute;
-  z-index:0;
-}
-
-#leftgreensquare {
-  top: 52px;
-  width: 44px;
-  height: 26px;
-  background: $gridGreen;
-  position: absolute;
-  z-index:0;
-  -moz-border-radius: 5px;
-  border-bottom-left-radius: 5px;
-}
-
-#bottomgreensquare {
-  top: 52px;
-  left: 10px;
-  width: 34px;
-  height: 36px;
-  background: $gridGreen;
-  position: absolute;
-  z-index:0;
-  -moz-border-radius: 5px;
-  border-bottom-left-radius: 5px;
-}
-
-#bottomyellowsquare {
-  top: 52px;
-  left: 44px;
-  width: 33px;
-  height: 36px;
-  background: $gridYellow;
-  position: absolute;
-  z-index:0;
-}
-
-#bottomwhitesquare {
-  top: 52px;
-  width: 33px;
-  height: 36px;
-  background: white;
-  position: absolute;
-  z-index:-1;
-}
-
-#gridfore {
-  left: 25px;
-  margin-bottom: 20px;
-  margin-right: 20px;
-  width: 100px;
-  height: 103px;
-  display: inline-block;
-}
-
-#effortText {
-  position: absolute;
-  top: 84px;
-  left: 32px;
-  font-weight: bold;
-}
-
-#feelText {
-  writing-mode:tb-rl;
-  -webkit-transform:rotate(270deg);
-  -moz-transform:rotate(270deg);
-  -o-transform: rotate(270deg);
-  white-space:nowrap;
-  display:block;
-  position:absolute;
-  bottom:46px;
-  width:20px;
-  height:20px;
-  font-weight:bold;
-}
-
-.gridButton {
-  background-color: white;
-  background-image: none;
-  background-image: none;
-  background-image: none;
-  background-image: none;
-  background-image: none;
-}
-
-.btn-group#gridfore > .gridCornerButton {
-  webkit-border-top-left-radius: 0px;
-  -moz-border-radius-topleft: 0px;
-  border-top-left-radius: 0px;
-  -webkit-border-bottom-left-radius: 0px;
-  -moz-border-radius-bottomleft: 0px;
-  border-bottom-left-radius: 0px;
-  webkit-border-top-right-radius: 0px;
-  -moz-border-radius-topright: 0px;
-  border-top-right-radius: 0px;
-  -webkit-border-bottom-right-radius: 0px;
-  -moz-border-radius-bottomright: 0px;
-  border-bottom-right-radius: 0px;
-}
-
-.gridInner {
-  width: 130px;
-  height: 122px;
-  padding: 0 0 0 0;
+.quadmegadiv {
+  height: 120px;
 }

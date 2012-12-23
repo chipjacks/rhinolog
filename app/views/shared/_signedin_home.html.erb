@@ -1,67 +1,69 @@
+<div class="megadiv"></div>
 <div id="runs">
-  <h2 id="month">
-    <%= link_to "<", date: @date.prev_week %>
-    <%= disp_date_range(@date.beginning_of_week, @date.end_of_week) %>
-    <%= link_to ">", date: @date.next_week %>
-  </h2>
-</div>
-
-<table class="table table-hover">
-	<thead>
-		<tr>
-			<th class="no-side-pad vert-text" style="width: 5px"></th>
-			<th style="width: 15%">Date</th>
-			<th style="width: 15%">Distance</th>
-			<th style="width: 15%">Time</th>
-			<th style="width: 15%">Pace</th>
-			<th style="width: 33%">Notes</th>
-			<th style="width: 7%"></th>
-			<th class="no-side-pad" style="width: 5px"></th>
-		</tr>
-	</thead>
-	<%= render partial: 'shared/week' %>
-</table>
-
-<% if !@runs.empty? %>
-	<div class="row">
-		<div class="span2 offset4">
-			<h3 class="align-right">Totals:</h3>
-			<% time = @runs.reduce(0) {|sum, r| sum + (r.time_in_secs ? r.time_in_secs : 0) } %>
-			<% dist = @runs.reduce(0) {|sum, r| sum + (r.distance ? r.distance : 0) } %>
-			<% pace_dist = @runs.reduce(0) {|sum, r| sum + (r.time_in_secs && r.distance ? r.distance : 0) } %>
-		</div>
-		<div class="span2">
-			<h3 class="no-bot-marg align-right">
-			<% if pace_dist == 0 %>
-				&nbsp
-			<% else %>
-			<%= ChronicDuration.output((time/pace_dist).round, :format => :short) %>
-			<% end %>
-			</h3>
-			<small class="pull-right">
-				Average Pace
-			</small>
-		</div>
-		<div class="span2">
-			<h3 class="no-bot-marg align-right">
-				<% time -= time % 60 %>
-				<% if time != 0 %>
-					<%= ChronicDuration.output(time, :format => :short, units: 2) %>
-				<% else %>
-					&nbsp
-				<% end %>
-			</h3>
-			<small class="pull-right">
-				Total Time
-			</small>
-		</div>
-		<div class="span2">
-			<h3 class="no-bot-marg align-right">
-				<%= dist %> mi
-			</h3>
-			<small class="pull-right">
-				Mileage
-			</small>
-		</div>
+	  <h2 id="month">
+	    <%= link_to "<", date: @date.prev_week %>
+	    <%= disp_date_range(@date.beginning_of_week, @date.end_of_week) %>
+	    <%= link_to ">", date: @date.next_week %>
+	  </h2>
 	</div>
-<% end %>
+
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th class="no-side-pad vert-text" style="width: 5px"></th>
+				<th style="width: 15%">Date</th>
+				<th style="width: 15%">Distance</th>
+				<th style="width: 15%">Time</th>
+				<th style="width: 15%">Pace</th>
+				<th style="width: 33%">Notes</th>
+				<th style="width: 7%"></th>
+				<th class="no-side-pad" style="width: 5px"></th>
+			</tr>
+		</thead>
+		<%= render partial: 'shared/week' %>
+	</table>
+
+	<% if !@runs.empty? %>
+		<div class="row">
+			<div class="span2 wide offset4">
+				<h3 class="align-right">Totals:</h3>
+				<% time = @runs.reduce(0) {|sum, r| sum + (r.time_in_secs ? r.time_in_secs : 0) } %>
+				<% dist = @runs.reduce(0) {|sum, r| sum + (r.distance ? r.distance : 0) } %>
+				<% pace = avg_pace(@runs) %>
+			</div>
+			<div class="span2 wide">
+				<h3 class="no-bot-marg align-right">
+				<% if !pace %>
+					&nbsp
+				<% else %>
+				<%= ChronicDuration.output(pace, :format => :chrono) %>
+				<% end %>
+				</h3>
+				<small class="pull-right">
+					Average Pace
+				</small>
+			</div>
+			<div class="span2 wide">
+				<h3 class="no-bot-marg align-right">
+					<% time -= time % 60 %>
+					<% if time != 0 %>
+						<%= ChronicDuration.output(time/60, :format => :chrono, units: 2) %>
+					<% else %>
+						&nbsp
+					<% end %>
+				</h3>
+				<small class="pull-right">
+					Total Time
+				</small>
+			</div>
+			<div class="span2 wide">
+				<h3 class="no-bot-marg align-right">
+					<%= dist.round %> mi
+				</h3>
+				<small class="pull-right">
+					Mileage
+				</small>
+			</div>
+		</div>
+	<% end %>
+<div class="quadmegadiv"></div>

@@ -12,6 +12,7 @@ class StaticPagesController < ApplicationController
   						:conditions => 
   						{:date => @date.beginning_of_week..@date.end_of_week})
   	else
+      @run = Run.new
   		@session = user_session
   	end
   end
