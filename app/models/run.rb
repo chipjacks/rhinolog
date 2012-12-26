@@ -21,6 +21,7 @@ class Run < ActiveRecord::Base
 	belongs_to :user
 
 	validates :user_id, presence: true
+	validates :date, presence: true
 	# validates :distance, presence: true
 	# validates :time_in_secs, presence: true
 	# validates :pace_in_secs, presence: true

@@ -13,8 +13,23 @@ class ReceiveTextController < ApplicationController
     	newrun = dude.runs.build(run_data[:data])
 
     	if run_data[:errors].empty?
+    		if run_data[:date_text]
+    			newrun.date = Chronic.parse(run_data[:date_text], context: :past).to_date
+    		else
+    			newrun.date = Date.today
+    		end
     		newrun.save!
-    		@response = "Logged succesfully - date: #{newrun.date.strftime("%-m/%d")}, distance: #{sprintf("%g", newrun.distance)}, time: #{ChronicDuration.output(newrun.time_in_secs, :format => :short)}, pace: #{ChronicDuration.output(newrun.pace_in_secs, :format => :short)}"
+    		@response = "Logged succesfully - date: "
+    		@response += newrun.date.strftime("%-m/%d")}
+    		if newrun.distance
+    			@response += ", distance: #{sprintf("%g", newrun.distance)}"
+    		end
+    		if newrun.time_in_secs
+    			@response += ", time: #{ChronicDuration.output(newrun.time_in_secs, :format => :short)}"
+    		end
+    		if newrun.pace_in_secs
+    		 @response += ", pace: #{ChronicDuration.output(newrun.pace_in_secs, :format => :short)}"
+    		end
     	else
     		@response = "Unable to log run. Couldn't parse "
     		@response += run_data[:errors].join(", ")
