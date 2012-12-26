@@ -8,7 +8,7 @@
 <% end_date = @start_date.weeks_ago(8) %>
 <% colors = ['', 'fe_green', 'fe_yellow', 'fe_red'] %>
 <% @runs_by_week.reverse_each do |key, value| %>
-	<% while key < @start_date && @start_date > end_date do %>
+	<% while key < @start_date && @start_date >= end_date do %>
 		<a class="week_summary" href="/?date=<%= @start_date %>">
 			<div>
 				<h2>
@@ -48,40 +48,42 @@
 					pace
 				<% end %>
 			</div>
-			<div class="fe_box span3">
-				<% if feel %>
-					<% feel_width = ((feel-1)/2)*340 + 20	 %>
-					<% color = colors[feel.round] %>
-					<div class="feel-measure" <%= "style=width:#{feel_width.to_s}px" %> > 
-						<span class="icon-caret-down pull-right fe_icon <%= color %>"></span>
-					</div>
-				<% end %>
-				<% if effort %>
-					<% effort_width = ((effort-1)/2)*340 + 20	 %>
-					<% color = colors[effort.round] %>
-					<div class="effort-measure" <%= "style=width:#{effort_width.to_s}px" %>>
-						<span class="icon-caret-up pull-right fe_icon <%= color %>"></span>
-					</div>
-				<% end %>
-				<div class="microbreak"></div>
-				<span class="fe_text lead">
+			<% if feel || effort %>
+				<div class="fe_box span3">
 					<% if feel %>
-						<div class="txt_space">Good</div>
-						<div class="txt_space" style="text-align: center">Okay</div>
-						<div class="txt_space" style="text-align: right">Bad</div>
-					<% else %>
-						<div class="txt_space"></div>
+						<% feel_width = ((feel-1)/2)*340 + 20	 %>
+						<% color = colors[feel.round] %>
+						<div class="feel-measure" <%= "style=width:#{feel_width.to_s}px" %> > 
+							<span class="icon-caret-down pull-right fe_icon <%= color %>"></span>
+						</div>
 					<% end %>
-				</span>
-				<hr class="fe_line">
-				<span class="fe_text lead e_text">
 					<% if effort %>
-						<div class="txt_space">Easy</div>
-						<div class="txt_space" style="text-align: center">Medium</div>
-						<div class="txt_space" style="text-align: right">Hard</div>
+						<% effort_width = ((effort-1)/2)*340 + 20	 %>
+						<% color = colors[effort.round] %>
+						<div class="effort-measure" <%= "style=width:#{effort_width.to_s}px" %>>
+							<span class="icon-caret-up pull-right fe_icon <%= color %>"></span>
+						</div>
 					<% end %>
-				</span>
-			</div>
+					<div class="microbreak"></div>
+					<span class="fe_text lead">
+						<% if feel %>
+							<div class="txt_space">Good</div>
+							<div class="txt_space" style="text-align: center">Okay</div>
+							<div class="txt_space" style="text-align: right">Bad</div>
+						<% else %>
+							<div class="txt_space"></div>
+						<% end %>
+					</span>
+					<hr class="fe_line">
+					<span class="fe_text lead e_text">
+						<% if effort %>
+							<div class="txt_space">Easy</div>
+							<div class="txt_space" style="text-align: center">Medium</div>
+							<div class="txt_space" style="text-align: right">Hard</div>
+						<% end %>
+					</span>
+				</div>
+			<% end %>
 		</div>
 	</a>
 	<% @start_date = @start_date.weeks_ago(1) %>
