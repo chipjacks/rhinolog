@@ -10,14 +10,10 @@ class ReceiveTextController < ApplicationController
     else
     	run_data = parse_body(@message_body)
 
-    	newrun = dude.runs.build(run_data[:data])
+    	newrun = dude.runs.build()
+    	newrun.parse_text(run_data)
 
     	if run_data[:errors].empty?
-    		if run_data[:date_text]
-    			newrun.date = Chronic.parse(run_data[:date_text], context: :past).to_date
-    		else
-    			newrun.date = Date.today
-    		end
     		newrun.save!
     		@response = "Logged succesfully - date: "
     		@response += newrun.date.strftime("%-m/%d")
