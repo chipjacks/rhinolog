@@ -20,7 +20,7 @@ class ReceiveTextController < ApplicationController
     		end
     		newrun.save!
     		@response = "Logged succesfully - date: "
-    		@response += newrun.date.strftime("%-m/%d")}
+    		@response += newrun.date.strftime("%-m/%d")
     		if newrun.distance
     			@response += ", distance: #{sprintf("%g", newrun.distance)}"
     		end
