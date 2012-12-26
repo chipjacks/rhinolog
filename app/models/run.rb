@@ -20,6 +20,7 @@ class Run < ActiveRecord::Base
 						:notes, :rhinoGrid
 	belongs_to :user
 
+	before_validation :complete_fields
 	validates :user_id, presence: true
 	validates :date, presence: true
 	# validates :distance, presence: true
@@ -29,7 +30,7 @@ class Run < ActiveRecord::Base
 	default_scope order: 'runs.date ASC'
 
 	def parse_text(f)
-		if f[:date_text]
+		if f[:date_text].present?
 			self.date = Chronic.parse(f[:date_text])
 		else
 			self.date = Date.today
@@ -60,6 +61,15 @@ class Run < ActiveRecord::Base
 		end
 	end
 
+	def complete_fields
+    if distance.present? && time_in_secs.present?
+      self.pace_in_secs = time_in_secs / distance
+    elsif time_in_secs.present? && pace_in_secs.present?
+      self.distance = time_in_secs.to_f / pace_in_secs.to_f
+    elsif distance.present? && pace_in_secs.present?
+      self.time_in_secs = pace_in_secs * distance
+    end
+  end
 
 	def date_text=(date)
 		self.date = Chronic.parse(date).to_s if date.present?

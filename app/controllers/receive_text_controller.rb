@@ -11,7 +11,7 @@ class ReceiveTextController < ApplicationController
     	run_data = parse_body(@message_body)
 
     	newrun = dude.runs.build()
-    	newrun.parse_text(run_data)
+    	newrun.parse_text(run_data[:data])
 
     	if run_data[:errors].empty?
     		newrun.save!

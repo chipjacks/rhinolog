@@ -68,4 +68,38 @@ module ReceiveTextHelper
 
     return Hash[:data, run_data, :errors, errors]
   end
+
+  # def parse_text(f)
+  #   s = Run.new
+  #   if f[:date_text].present?
+  #     s.date = Chronic.parse(f[:date_text])
+  #   else
+  #     s.date = Date.today
+  #   end
+  #   if f[:distance]
+  #     s.distance = f[:distance].to_f
+  #   end
+  #   if f[:time_text]
+  #     if !f[:time_text].include?('h') && !f[:time_text].include?('m')
+  #       f[:time_text] += ':00' unless f[:time_text].match(/.+:.+:.+/)
+  #     end
+  #     s.time_in_secs = ChronicDuration.parse(f[:time_text])
+  #   end
+  #   if f[:pace_text]
+  #     s.pace_in_secs = ChronicDuration.parse(f[:pace_text])
+  #     if s.pace_in_secs < 220 #user meant minutes, not seconds
+  #       s.pace_in_secs *= 60
+  #     end
+  #   end
+  #   if f[:feel]
+  #     s.feel = f[:feel]
+  #   end
+  #   if f[:effort]
+  #     s.effort = f[:effort]
+  #   end
+  #   if f[:notes]
+  #     s.notes = f[:notes]
+  #   end
+  #   return s
+  # end
 end
