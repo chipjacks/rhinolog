@@ -36,6 +36,7 @@ class Run < ActiveRecord::Base
 		end
 		if f[:distance]
 			self.distance = f[:distance].to_f
+		end
 		if f[:time_text]
 			if !f[:time_text].include?('h') && !f[:time_text].include?('m')
         f[:time_text] += ':00' unless f[:time_text].match(/.+:.+:.+/)
