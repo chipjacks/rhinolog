@@ -1,4 +1,4 @@
-<tr class="editrun <%= 'today' if run_feed.date == Date.today %>" 
+<tr class="editrun <%= 'today' if run_feed.date == Time.zone.now.to_date %>" 
 		data-date="<%=run_feed.date%>" data-id="<%=run_feed.id %>">
 	<td class="feel <%= color(run_feed.feel)%>" rel="tooltip" 
 			title="Feel: <%= feel_title(run_feed.feel)%>" ></td>

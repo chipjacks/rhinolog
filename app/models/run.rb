@@ -33,7 +33,7 @@ class Run < ActiveRecord::Base
 		if f[:date_text].present?
 			self.date = Chronic.parse(f[:date_text])
 		else
-			self.date = Date.today
+			self.date = Time.zone.now.to_date
 		end
 		if f[:distance]
 			self.distance = f[:distance].to_f
