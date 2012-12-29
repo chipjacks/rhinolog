@@ -117,7 +117,7 @@ update_time = (dist, pm, ps) ->
 update_dist = (tm, pm, ps) ->
 	tt = tm*60
 	pt = pm*60 + ps
-	dist = Math.round(tt/pt)
+	dist = Math.round(tt/pt*10)/10
 	$('#run_distance').val(dist)
 	$('#run_distance').parent().removeClass('error')
 
@@ -141,7 +141,7 @@ jQuery ->
 		else
 			if dist and pace_mins and (pace_secs or pace_secs == 0)
 				update_time(dist, pace_mins, pace_secs)
-			else if time_mins and pace_mins and pace_secs
+			else if time_mins and pace_mins and (pace_secs or pace_secs == 0)
 				update_dist(time_mins, pace_mins, pace_secs)
 
 jQuery ->

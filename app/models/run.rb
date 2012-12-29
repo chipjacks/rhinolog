@@ -63,11 +63,11 @@ class Run < ActiveRecord::Base
 
 	def complete_fields
     if distance.present? && time_in_secs.present?
-      self.pace_in_secs = time_in_secs / distance
+      self.pace_in_secs = (time_in_secs / distance).round
     elsif time_in_secs.present? && pace_in_secs.present?
-      self.distance = time_in_secs.to_f / pace_in_secs.to_f
+      self.distance = ((time_in_secs.to_f / pace_in_secs.to_f)*10).round/10
     elsif distance.present? && pace_in_secs.present?
-      self.time_in_secs = pace_in_secs * distance
+      self.time_in_secs = (pace_in_secs * distance).round
     end
   end
 
